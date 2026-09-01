@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1260" viewBox="0 0 1800 1260" role="img" aria-labelledby="title desc">
+  <title id="title">汇丰 Agent Hub 与 OPA Policy Engine 完整交互架构</title>
+  <desc id="desc">展示 Policy Governance、Agent Hub 运行时决策、身份与 Context、业务系统与数据中心、Audit、Evaluation 和第二阶段 Intelligent Advisor 之间的关系。</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1769aa"/></marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#c62828"/></marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#2e7d32"/></marker>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#667085"/></marker>
+    <style>
+      .bg { fill:#f7f8fa; }
+      .section { fill:#ffffff; stroke:#cfd5dd; stroke-width:2; }
+      .section-title { font:500 23px 'Microsoft YaHei','PingFang SC',sans-serif; fill:#1d2939; }
+      .node { fill:#ffffff; stroke:#98a2b3; stroke-width:1.6; }
+      .node-red { fill:#fff4f3; stroke:#c62828; stroke-width:2; }
+      .node-blue { fill:#eef6ff; stroke:#1769aa; stroke-width:2; }
+      .node-green { fill:#effaf1; stroke:#2e7d32; stroke-width:2; }
+      .node-purple { fill:#f5f1ff; stroke:#6941c6; stroke-width:2; }
+      .node-gray { fill:#f9fafb; stroke:#667085; stroke-width:1.6; }
+      .label { font:500 20px 'Microsoft YaHei','PingFang SC',sans-serif; fill:#101828; text-anchor:middle; }
+      .sub { font:400 16px 'Microsoft YaHei','PingFang SC',sans-serif; fill:#475467; text-anchor:middle; }
+      .small { font:400 15px 'Microsoft YaHei','PingFang SC',sans-serif; fill:#475467; }
+      .edge { fill:none; stroke:#1769aa; stroke-width:3; marker-end:url(#arrow-blue); }
+      .edge-red { fill:none; stroke:#c62828; stroke-width:3; marker-end:url(#arrow-red); }
+      .edge-green { fill:none; stroke:#2e7d32; stroke-width:3; marker-end:url(#arrow-green); }
+      .edge-gray { fill:none; stroke:#667085; stroke-width:2.5; stroke-dasharray:8 7; marker-end:url(#arrow-gray); }
+      .edge-label { font:500 15px 'Microsoft YaHei','PingFang SC',sans-serif; fill:#344054; text-anchor:middle; paint-order:stroke; stroke:#f7f8fa; stroke-width:5; }
+      .num { fill:#1769aa; }
+      .num-text { font:500 16px 'Microsoft YaHei','PingFang SC',sans-serif; fill:#ffffff; text-anchor:middle; dominant-baseline:central; }
+      .legend { font:400 15px 'Microsoft YaHei','PingFang SC',sans-serif; fill:#344054; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1800" height="1260"/>
+  <text x="70" y="55" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="31" font-weight="500" fill="#101828">汇丰 Agent Hub × OPA Policy Engine：完整交互架构</text>
+  <text x="70" y="88" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="17" fill="#475467">中心思想：Agent Hub 负责拦截和执行，OPA 负责确定性 Policy Decision；Policy Governance、业务执行与 Audit Evidence 相互分离。</text>
+
+  <!-- Policy governance -->
+  <rect class="section" x="55" y="120" width="1690" height="225" rx="16"/>
+  <text class="section-title" x="85" y="158">A. Policy Governance &amp; Delivery（中央管理后台）</text>
+
+  <rect class="node" x="90" y="190" width="250" height="105" rx="12"/>
+  <text class="label" x="215" y="228">Policy Portal</text>
+  <text class="sub" x="215" y="257">Policy模板、编写、Agent绑定</text>
+  <text class="sub" x="215" y="281">负责人和监管依据</text>
+
+  <rect class="node" x="390" y="190" width="250" height="105" rx="12"/>
+  <text class="label" x="515" y="228">Lifecycle &amp; Approval</text>
+  <text class="sub" x="515" y="257">版本、复核、例外、有效期</text>
+  <text class="sub" x="515" y="281">起草 → 影子 → 生效 → 退役</text>
+
+  <rect class="node" x="690" y="190" width="250" height="105" rx="12"/>
+  <text class="label" x="815" y="228">Policy Test &amp; Simulation</text>
+  <text class="sub" x="815" y="257">冲突、空白、回归测试</text>
+  <text class="sub" x="815" y="281">历史回放和预期决策</text>
+
+  <rect class="node-red" x="990" y="190" width="250" height="105" rx="12"/>
+  <text class="label" x="1115" y="228">Build &amp; Digital Signing</text>
+  <text class="sub" x="1115" y="257">生成只读 Policy Bundle</text>
+  <text class="sub" x="1115" y="281">版本固定、可验证、可回退</text>
+
+  <rect class="node-red" x="1290" y="190" width="380" height="105" rx="12"/>
+  <text class="label" x="1480" y="228">Policy Distribution Service</text>
+  <text class="sub" x="1480" y="257">向各 Agent Hub 节点发布 Policy</text>
+  <text class="sub" x="1480" y="281">失败时保留上一有效版本</text>
+
+  <path class="edge-red" d="M340 242 H382"/>
+  <path class="edge-red" d="M640 242 H682"/>
+  <path class="edge-red" d="M940 242 H982"/>
+  <path class="edge-red" d="M1240 242 H1282"/>
+
+  <!-- Runtime -->
+  <rect class="section" x="55" y="380" width="1690" height="470" rx="16"/>
+  <text class="section-title" x="85" y="420">B. Agent Hub 运行时决策（每一次重要动作的必经路径）</text>
+
+  <rect class="node-blue" x="80" y="475" width="195" height="130" rx="12"/>
+  <text class="label" x="177" y="515">用户与业务入口</text>
+  <text class="sub" x="177" y="546">员工、客户、业务应用</text>
+  <text class="sub" x="177" y="571">系统接口（API）</text>
+  <text class="sub" x="177" y="594">聊天与工作流</text>
+
+  <rect x="315" y="452" width="995" height="320" rx="16" fill="#f8fbff" stroke="#1769aa" stroke-width="2.5"/>
+  <text x="345" y="487" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="22" font-weight="500" fill="#1769aa">现有 Agent Hub</text>
+
+  <rect class="node" x="350" y="525" width="190" height="100" rx="12"/>
+  <text class="label" x="445" y="562">统一接入网关</text>
+  <text class="sub" x="445" y="591">身份、会话、追踪编号</text>
+
+  <rect class="node" x="575" y="525" width="190" height="100" rx="12"/>
+  <text class="label" x="670" y="562">Agent Orchestrator</text>
+  <text class="sub" x="670" y="591">理解任务、选择动作</text>
+
+  <rect class="node-red" x="800" y="515" width="205" height="120" rx="12"/>
+  <text class="label" x="902" y="552">Policy Adapter</text>
+  <text class="sub" x="902" y="581">拦截动作、整理 Context</text>
+  <text class="sub" x="902" y="607">统一请求和执行结果</text>
+
+  <rect class="node-red" x="1040" y="505" width="225" height="140" rx="12"/>
+  <text class="label" x="1152" y="545">OPA Policy Engine</text>
+  <text class="sub" x="1152" y="576">确定性 Policy Decision</text>
+  <text class="sub" x="1152" y="602">允许 / 拒绝 / 附带控制</text>
+  <text class="sub" x="1152" y="628">人工复核 + Reason + Policy版本</text>
+
+  <rect class="node-green" x="800" y="676" width="465" height="67" rx="12"/>
+  <text class="label" x="1032" y="705">Enforcement Controller（执行控制）</text>
+  <text class="sub" x="1032" y="730">遮盖、限额、二次认证、人工审批、紧急停止</text>
+
+  <rect x="1345" y="452" width="365" height="320" rx="16" fill="#f6fbf6" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="1375" y="487" font-family="Microsoft YaHei, PingFang SC, sans-serif" font-size="22" font-weight="500" fill="#2e7d32">业务系统与数据中心</text>
+
+  <rect class="node-green" x="1380" y="515" width="140" height="72" rx="10"/>
+  <text class="label" x="1450" y="545">核心业务</text>
+  <text class="sub" x="1450" y="571">账户、交易、支付</text>
+
+  <rect class="node-green" x="1540" y="505" width="140" height="92" rx="10"/>
+  <text class="label" x="1610" y="533">客户系统</text>
+  <text class="sub" x="1610" y="558">CRM：客户关系</text>
+  <text class="sub" x="1610" y="578">KYC：身份与尽调</text>
+  <text class="sub" x="1610" y="594">AML：反洗钱</text>
+
+  <rect class="node-green" x="1380" y="610" width="140" height="72" rx="10"/>
+  <text class="label" x="1450" y="640">知识与文档</text>
+  <text class="sub" x="1450" y="666">制度、产品、合同</text>
+
+  <rect class="node-green" x="1540" y="610" width="140" height="72" rx="10"/>
+  <text class="label" x="1610" y="640">数据平台</text>
+  <text class="sub" x="1610" y="666">湖仓、报表、特征</text>
+
+  <rect class="node-green" x="1380" y="705" width="300" height="45" rx="10"/>
+  <text class="label" x="1530" y="734">外部邮件、文件与第三方服务</text>
+
+  <!-- Runtime arrows -->
+  <circle class="num" cx="292" cy="553" r="16"/><text class="num-text" x="292" y="553">1</text>
+  <path class="edge" d="M275 553 H342"/>
+  <path class="edge" d="M540 575 H567"/>
+  <circle class="num" cx="557" cy="553" r="16"/><text class="num-text" x="557" y="553">2</text>
+  <path class="edge" d="M765 575 H792"/>
+  <circle class="num" cx="782" cy="553" r="16"/><text class="num-text" x="782" y="553">3</text>
+  <path class="edge-red" d="M1005 575 H1032"/>
+  <circle fill="#c62828" cx="1022" cy="553" r="16"/><text class="num-text" x="1022" y="553">4</text>
+  <path class="edge-red" d="M1152 645 V668"/>
+  <circle fill="#c62828" cx="1178" cy="659" r="16"/><text class="num-text" x="1178" y="659">5</text>
+  <path class="edge-green" d="M1265 709 H1337"/>
+  <circle fill="#2e7d32" cx="1326" cy="687" r="16"/><text class="num-text" x="1326" y="687">6</text>
+
+  <!-- Policy distribution to OPA -->
+  <path class="edge-red" d="M1480 295 V365 H1152 V497"/>
+  <text class="edge-label" x="1310" y="360">仅激活已审批且签名有效的 Policy版本</text>
+
+  <!-- Context sources -->
+  <rect class="node-purple" x="80" y="625" width="195" height="145" rx="12"/>
+  <text class="label" x="177" y="655">Trusted Context</text>
+  <text class="label" x="177" y="680">Sources</text>
+  <text class="sub" x="177" y="710">身份与角色、Agent登记</text>
+  <text class="sub" x="177" y="735">工具目录、数据分类</text>
+  <text class="sub" x="177" y="760">风险信号、地区与时间</text>
+  <path d="M275 705 H770 Q790 705 790 685 V636" class="edge-gray"/>
+  <text class="edge-label" x="525" y="697">只提供判断需要的最小可信属性</text>
+
+  <!-- Return path -->
+  <path d="M1530 772 V805 H670 V633" class="edge-green"/>
+  <circle fill="#2e7d32" cx="1295" cy="805" r="16"/><text class="num-text" x="1295" y="805">7</text>
+  <text class="edge-label" x="1070" y="800">工具结果返回 Hub，再做 Data Masking 与 Output Check</text>
+
+  <!-- Evidence -->
+  <rect class="section" x="55" y="885" width="1690" height="275" rx="16"/>
+  <text class="section-title" x="85" y="925">C. Audit Evidence、Evaluation 与持续改进（独立于 Agent，Agent 无权修改）</text>
+
+  <rect class="node-gray" x="90" y="965" width="275" height="125" rx="12"/>
+  <text class="label" x="227" y="1003">OPA Decision Logs</text>
+  <text class="sub" x="227" y="1032">输入摘要、结果、命中规则</text>
+  <text class="sub" x="227" y="1057">Policy版本、耗时、Decision ID</text>
+  <text class="sub" x="227" y="1082">敏感字段自动遮盖</text>
+
+  <rect class="node-gray" x="410" y="965" width="275" height="125" rx="12"/>
+  <text class="label" x="547" y="1003">Agent 全链路轨迹</text>
+  <text class="sub" x="547" y="1032">用户请求、计划、委托链</text>
+  <text class="sub" x="547" y="1057">工具执行、业务结果</text>
+  <text class="sub" x="547" y="1082">人工覆盖和批准理由</text>
+
+  <rect class="node-blue" x="730" y="965" width="275" height="125" rx="12"/>
+  <text class="label" x="867" y="1003">Replay &amp; Simulation</text>
+  <text class="sub" x="867" y="1032">新旧 Policy 差异</text>
+  <text class="sub" x="867" y="1057">正常、边界、对抗场景</text>
+  <text class="sub" x="867" y="1082">上线前影响评估</text>
+
+  <rect class="node-blue" x="1050" y="965" width="275" height="125" rx="12"/>
+  <text class="label" x="1187" y="1003">指标与治理看板</text>
+  <text class="sub" x="1187" y="1032">误拦截、漏拦截、覆盖率</text>
+  <text class="sub" x="1187" y="1057">延迟、异常、人工审核量</text>
+  <text class="sub" x="1187" y="1082">Policy健康和 Audit Evidence</text>
+
+  <rect class="node-purple" x="1370" y="965" width="300" height="125" rx="12"/>
+  <text class="label" x="1520" y="1003">Phase 2 Intelligent Advisor</text>
+  <text class="sub" x="1520" y="1032">风险评分、原因解释</text>
+  <text class="sub" x="1520" y="1057">更安全动作与 Policy建议</text>
+  <text class="sub" x="1520" y="1082">初期只建议，不直接放行</text>
+
+  <path class="edge-gray" d="M1152 645 V875 H227 V957"/>
+  <circle fill="#667085" cx="1125" cy="865" r="16"/><text class="num-text" x="1125" y="865">8</text>
+  <path class="edge-gray" d="M670 633 V852 H547 V957"/>
+  <path class="edge-gray" d="M365 1027 H402"/>
+  <path class="edge-gray" d="M685 1027 H722"/>
+  <path class="edge-gray" d="M1005 1027 H1042"/>
+  <path class="edge-green" d="M1325 1027 H1362"/>
+  <path class="edge-green" d="M1520 965 V935 H815 V303"/>
+  <text class="edge-label" x="1230" y="952">Evidence → Policy改进建议（不直接放行）</text>
+
+  <!-- Legend -->
+  <line x1="80" y1="1205" x2="135" y2="1205" stroke="#1769aa" stroke-width="3"/><text class="legend" x="147" y="1211">实时业务请求与结果</text>
+  <line x1="365" y1="1205" x2="420" y2="1205" stroke="#c62828" stroke-width="3"/><text class="legend" x="432" y="1211">Policy发布与强制裁决</text>
+  <line x1="680" y1="1205" x2="735" y2="1205" stroke="#667085" stroke-width="2.5" stroke-dasharray="8 7"/><text class="legend" x="747" y="1211">Context、Logs 与 Evidence</text>
+  <line x1="995" y1="1205" x2="1050" y2="1205" stroke="#2e7d32" stroke-width="3"/><text class="legend" x="1062" y="1211">业务执行和改进反馈</text>
+  <text class="small" x="1470" y="1211">编号 1–8：一次典型 Agent 动作的完整路径</text>
+</svg>

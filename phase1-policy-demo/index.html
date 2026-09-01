@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="HSBC × SCUT Agent Hub Policy Governance Phase 1">
+  <title>HSBC × SCUT · Policy Governance Phase 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav">
+    <div class="brand"><span class="mark"></span><b>HSBC × SCUT</b><span>Policy Governance</span></div>
+    <nav><a href="#why">为什么</a><a href="#architecture">怎么工作</a><a href="#plan">Phase 1</a><a href="#roles">双方分工</a><a href="#success">如何验收</a></nav>
+    <span class="pill"><i></i>Phase 1 · 12个月</span>
+  </div></header>
+  <main>
+    <section class="hero"><div class="wrap">
+      <div class="eyebrow">Agent Hub Policy Governance · Phase 1</div>
+      <h1>不是再造一个引擎，<br>而是让每次 Agent 决策都<br><em>管得住、测得准、说得清</em></h1>
+      <p class="lead">汇丰已有 Agent Hub 和确定性 Policy 执行能力。Phase 1要补齐的是工程与治理基础：Policy可管理、上线前可测试、运行中可度量、事后可审计。</p>
+      <div class="actions"><a class="primary" href="#architecture">看懂整套方案</a><a class="secondary" href="#plan">查看12个月计划</a></div>
+      <div class="one-line"><b>一句话分工</b><p><strong>SCUT</strong>设计方法、规范、Benchmark和评价体系；<strong>汇丰</strong>把它们接入现有Agent Hub，建设生产功能并负责上线运行。</p></div>
+    </div></section>
+    <section id="why"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Why now</div><h2>汇丰现在缺的，不是“会不会拦截”</h2></div><p>OPA、Cedar等工具擅长根据明确规则给出允许或拒绝。更困难的是：规则怎么管理、是否正确、升级会不会出问题、出了问题能否还原。</p></div>
+      <div class="problem-grid">
+        <article class="problem"><span class="num">01</span><h3>Policy越来越多，谁负责？</h3><p>版本、责任人、审批状态和生效范围不清楚，容易出现旧规则仍在运行。</p><b>→ 建立完整生命周期</b></article>
+        <article class="problem"><span class="num">02</span><h3>上线前，怎么知道不会误伤？</h3><p>缺少标准场景和预期结果，Policy修改后无法系统判断是改善还是倒退。</p><b>→ 建立测试、Replay与Benchmark</b></article>
+        <article class="problem"><span class="num">03</span><h3>事后，为什么允许了？</h3><p>没有统一Decision Log和Trace，就无法还原当时用户、Agent、工具、数据与Policy版本。</p><b>→ 建立可审计证据链</b></article>
+      </div>
+    </div></section>
+    <section id="architecture"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">The operating model</div><h2>把Policy Engine放进一个完整闭环</h2></div><p>点击模块查看作用。Policy Engine只是中间的“判断器”；上面需要管理，下面需要证据、测试和改进。</p></div>
+      <div class="arch">
+        <div class="arch-tabs"><button class="active" data-view="all">完整闭环</button><button data-view="before">上线前</button><button data-view="runtime">运行中</button><button data-view="after">运行后</button></div>
+        <div class="layer layer-a" data-stage="before"><div class="layer-title">A · 管理与发布<small>Before runtime</small></div><div class="nodes"><button data-title="Policy Workspace" data-copy="统一创建和维护Policy，记录责任人、版本、适用范围与变更原因。">Policy Workspace</button><button data-title="Review & Approval" data-copy="Policy必须经过评审与审批，才能从草稿进入测试或生产。">Review & Approval</button><button data-title="Test & Release" data-copy="使用标准测试集验证结果，再按受控流程发布到Agent Hub。">Test & Release</button></div></div>
+        <div class="layer layer-b" data-stage="runtime"><div class="layer-title">B · Agent Hub运行<small>During runtime</small></div><div class="nodes"><button data-title="Agent Hub" data-copy="接收业务请求，编排Agent、模型、工具和数据系统，是现有业务底座。">Agent Hub</button><button data-title="Policy Adapter" data-copy="把用户、Agent、工具、数据等级和业务场景整理成统一格式。">Policy Adapter</button><button data-title="Policy Engine" data-copy="依据明确Policy返回允许、拒绝、人工复核或降级处理。可参考OPA实现。">Policy Engine</button><button data-title="Enforcement" data-copy="真正放行工具调用、阻止请求、隐藏敏感内容，或转交人工。">Enforcement</button><button data-title="Business & Data" data-copy="Agent最终调用的业务服务、工具和数据资源；通过Policy判断后才能访问。">Business & Data</button></div></div>
+        <div class="layer layer-c" data-stage="after"><div class="layer-title">C · 证据与改进<small>After runtime</small></div><div class="nodes"><button data-title="Decision Log" data-copy="记录每次判断使用的Context、Policy版本、结果和原因。">Decision Log</button><button data-title="Replay & Simulation" data-copy="重放历史或模拟新场景，不影响生产地比较新旧Policy。">Replay & Simulation</button><button data-title="Evaluation" data-copy="计算覆盖率、误拦截、漏拦截、延迟和人工复核负担。">Evaluation</button><button data-title="Phase 2 Advisor" data-copy="Phase 1成熟后再研究智能Policy建议；先建议、后审批。">Phase 2 Advisor</button></div></div>
+        <div class="detail" id="archDetail"><strong>完整闭环</strong><span>上层负责“谁制定、谁审批、何时生效”；中层负责“每次Agent操作如何判断和执行”；下层负责“如何证明、评价和持续改进”。</span></div>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">A simple story</div><h2>用一个业务请求看懂交互流程</h2></div><p>不用专业缩写：一位员工请Agent汇总受限客户资料，系统需要同时判断人、数据、用途和工具。</p></div>
+      <div class="story">
+        <article class="story-copy"><div class="persona"><span>李</span><div><b>业务员工 李女士</b><small>企业业务团队</small></div></div><h3>她向Agent提出请求</h3><blockquote>“请汇总这家客户的基本信息，并生成一份内部沟通摘要。”</blockquote><p>系统不能只判断“她是不是员工”，还要结合她的角色、数据敏感等级、用途、准备调用的工具，以及当前Policy版本。</p></article>
+        <div class="flow">
+          <div class="flow-step"><i>1</i><div><b>Agent Hub理解任务</b><small>准备查询客户资料并生成摘要</small></div><span class="status ok">继续</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>2</i><div><b>Policy Adapter整理Context</b><small>用户角色、数据等级、用途、工具、Policy版本</small></div><span class="status ok">信息完整</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>3</i><div><b>Policy Engine作出判断</b><small>基本信息可访问；受限字段需要更高权限</small></div><span class="status review">部分允许</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>4</i><div><b>Agent Hub执行限制</b><small>只返回允许字段，隐藏受限内容</small></div><span class="status blocked">已阻止</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>5</i><div><b>留下完整证据</b><small>记录Context、Policy版本、判断和执行动作</small></div><span class="status ok">可审计</span></div>
+        </div>
+      </div>
+    </div></section>
+    <section id="plan"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">12-month plan</div><h2>Phase 1：六步把基础做扎实</h2></div><p>点击阶段查看SCUT重点工作和可验收交付。每两个月形成一个明确Gate，避免研究与工程长期脱节。</p></div>
+      <div class="timeline">
+        <button class="phase active" data-i="0"><span>M1–2</span><h3>看清问题</h3><p>调研、差距分析、目标设计</p></button>
+        <button class="phase" data-i="1"><span>M3–4</span><h3>统一语言</h3><p>生命周期、Context、日志</p></button>
+        <button class="phase" data-i="2"><span>M5–6</span><h3>上线前能测试</h3><p>冲突、缺口、回归验证</p></button>
+        <button class="phase" data-i="3"><span>M7–8</span><h3>安全地试</h3><p>Replay、Simulation、Benchmark</p></button>
+        <button class="phase" data-i="4"><span>M9–10</span><h3>量化好坏</h3><p>指标、基线与治理报告</p></button>
+        <button class="phase" data-i="5"><span>M11–12</span><h3>验证与移交</h3><p>总结、培训、Phase 2评估</p></button>
+      </div>
+      <div class="phase-detail" id="phaseDetail"></div>
+    </div></section>
+
+    <section id="roles"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Clear ownership</div><h2>研究任务与产品建设不能混在一起</h2></div><p>SCUT回答“应该怎样设计、如何验证、怎样衡量”；汇丰回答“如何接入现有Agent Hub、如何安全上线和稳定运行”。</p></div>
+      <div class="roles">
+        <article class="role scut"><small>SCUT OWNS RESEARCH & METHODOLOGY</small><h3>SCUT负责</h3><ul><li>Policy生命周期、Context和证据模型</li><li>冲突、覆盖缺口和回归测试方法</li><li>Benchmark场景与预期结果数据集</li><li>Replay、Simulation和Evaluation方法</li><li>参考算法、脚本与验证原型</li><li>技术报告、论文和Phase 2准入评估</li></ul><p>不承担：Agent Hub生产UI、运行保障、正式系统运维。</p></article>
+        <article class="role hsbc"><small>HSBC OWNS PRODUCT & PRODUCTION</small><h3>汇丰负责</h3><ul><li>提供Agent Hub设计和代表性用例</li><li>提供脱敏或合成的Policy、Trace与Decision Log</li><li>实现Policy创建、审批、发布和附着功能</li><li>接入OPA或其他Policy Engine及业务系统</li><li>建设正式测试、Replay、Dashboard与审计功能</li><li>负责安全、性能、合规、上线和持续运营</li></ul><p>双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。</p></article>
+      </div>
+    </div></section>
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">What SCUT delivers</div><h2>不是一份报告，而是五个可接管的交付包</h2></div><p>每个交付包既有设计说明，也有能在代表性业务场景中演示和验证的具体产物。</p></div>
+      <div class="deliverables"><article><b>◈</b><h3>总体设计包</h3><p>调研、差距分析、目标架构、路线图与任务清单。</p></article><article><b>◇</b><h3>Policy规范包</h3><p>生命周期、元数据、Context、Decision Log、Trace与审计证据。</p></article><article><b>⌁</b><h3>验证工具包</h3><p>冲突、缺口、回归测试方法，以及参考脚本和原型。</p></article><article><b>◎</b><h3>Benchmark包</h3><p>标准场景、预期结果、Replay方法、指标和基线结果。</p></article><article><b>↗</b><h3>技术转移包</h3><p>最终报告、培训、论文初稿和Phase 2准入评估。</p></article></div>
+    </div></section>
+
+    <section id="success"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Definition of success</div><h2>验收要看“获得了什么能力”</h2></div><p>示意看板不代表汇丰现状。Phase 1需要先定义口径，再用真实或脱敏场景计算基线。</p></div>
+      <div class="scoreboard">
+        <div class="metrics"><div><b>可计算</b><span>Policy覆盖率</span><i style="--w:88%"></i></div><div><b>可区分</b><span>误拦截与漏拦截</span><i style="--w:74%"></i></div><div><b>可追溯</b><span>完整决策证据</span><i style="--w:94%"></i></div><div><b>可比较</b><span>新旧Policy版本</span><i style="--w:82%"></i></div></div>
+        <div class="criteria"><div>✓ <span><b>每条Policy有责任人、版本和审批记录</b><small>知道谁负责、为何改变、何时生效</small></span></div><div>✓ <span><b>每次关键操作经过Policy判断</b><small>高风险工具与数据访问不能绕开</small></span></div><div>✓ <span><b>上线前可以测试与模拟</b><small>新版本先在Benchmark和历史Trace中验证</small></span></div><div>✓ <span><b>升级后可以发现行为变化</b><small>明确哪些场景从允许变成拒绝，或相反</small></span></div><div>✓ <span><b>每次判断都可以解释</b><small>还原当时的Context、Policy版本和执行动作</small></span></div><div>✓ <span><b>用证据决定是否进入Phase 2</b><small>数据、流程和基线成熟后再研究智能建议</small></span></div></div>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">Plain-language glossary</div><h2>本方案中的关键词</h2></div><p>保留难以准确翻译的英文，同时用一句话说明作用。</p></div>
+      <div class="glossary"><article><b>Policy</b><span>规定Agent在什么条件下可以做什么、不能做什么，以及何时需要人工确认。</span></article><article><b>Policy Engine</b><span>根据Policy和Context作出允许、拒绝、复核或降级判断。</span></article><article><b>Context</b><span>用户角色、Agent、工具、数据等级和用途等现场信息。</span></article><article><b>Decision Log / Trace</b><span>记录为何这样判断以及完整调用过程，用于审计和复现。</span></article><article><b>Replay / Simulation</b><span>重放历史或模拟新场景，不影响真实业务地测试Policy。</span></article><article><b>Benchmark</b><span>固定的标准场景和预期答案，用来客观比较Policy版本。</span></article></div>
+    </div></section>
+
+    <section><div class="wrap"><div class="cta"><div><h2>Phase 1的真正终点</h2><p>汇丰不只是“装上一个Policy Engine”，而是拥有能持续管理、验证、度量和审计Agent行为的治理能力；SCUT的成果也能被工程团队直接接管。</p></div><a class="primary" href="#plan">从M1–2开始</a></div></div></section>
+  </main>
+  <footer><div class="wrap"><span>HSBC × SCUT · Agent Policy Governance Research Proposal</span><span>Interactive concept demo · No confidential data</span></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>
