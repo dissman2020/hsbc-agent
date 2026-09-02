@@ -74,33 +74,41 @@
       </div>
     </div></section>
     <section id="ai-boost"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">AI research, applied</div><h2>用 AI 研究经验，把 Benchmark 与审计证据链做扎实</h2></div><p>这是 SCUT 研究能力的核心落点：让“好不好”可测量、可对抗、可持续进化；让“为什么这样判”可验证、可追溯、防篡改。</p></div>
-      <div class="ai-boost">
-        <article class="ai-block bench">
-          <header><span class="num">01</span><div><h3>增强 Benchmark</h3><p>从“人工写几个例子”升级为可对抗、可校准、可自进化的评价体系。</p></div></header>
-          <ul>
-            <li><strong>对抗式场景生成</strong><span>用 LLM 自动生成绕过、边界与对抗用例，补上人工漏掉的攻击面。</span></li>
-            <li><strong>覆盖引导缺口挖掘</strong><span>像模糊测试一样，按“哪条规则没命中、哪类 Context 没覆盖”自动补用例。</span></li>
-            <li><strong>新旧 Policy 差分测试</strong><span>同一批场景对比新旧版本，明确哪些从允许变拒绝、哪些是误伤。</span></li>
-            <li><strong>题目难度校准</strong><span>用测量学方法给场景打分，避免 benchmark 过易或过难。</span></li>
-            <li><strong>硬样本回流</strong><span>把线上被人工复核、难判的案例挖出来，持续扩充 benchmark。</span></li>
-            <li><strong>校准的自动评测</strong><span>对“部分允许 / 降级 / 复核”这类非二值结果自动打分，并与人工标注对齐。</span></li>
-          </ul>
+      <div class="section-head"><div><div class="eyebrow">AI research, applied</div><h2>三个切入点，一条可落地的 AI 架构</h2></div><p>不铺开一堆零散技巧，而是收敛成三个互相咬合的引擎：一个把 Benchmark 做成自进化闭环，一个把审计做成可验证证据链，一个用反事实沙盒把它们粘在同一个可复现环境里。</p></div>
+      <div class="entries">
+        <article class="entry">
+          <header><span class="num">01</span><div><h3>生成式对抗评测引擎</h3><p>解决 Benchmark：从静态用例集，升级成能自我生成、自我校准、自我进化的闭环。</p></div></header>
+          <div class="pipeline">
+            <div class="pipe-node"><b>LLM 生成器</b><span>对抗、边界、缺口场景</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>覆盖导向调度</b><span>未命中规则 / 未覆盖 Context</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>差分执行</b><span>新旧 Policy 并行跑同一批输入</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>校准评测器</b><span>LLM-as-Judge + 覆盖率/误拦截指标</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>硬样本回流</b><span>生产 Trace 里的难判案例</span></div>
+          </div>
+          <p class="entry-note">闭环：生成 → 执行 → 打分 → 回流。Benchmark 不是一次性交付，而是持续进化的资产。</p>
         </article>
-        <article class="ai-block audit">
-          <header><span class="num">02</span><div><h3>增强审计证据链</h3><p>从“能查日志”升级为可追溯、可解释、防篡改的证据闭环。</p></div></header>
-          <ul>
-            <li><strong>结构化全链路溯源</strong><span>决策 → Context → Policy 版本 → 模型/Agent/工具 → 输出，全程唯一 ID 与时间戳。</span></li>
-            <li><strong>防篡改承诺链</strong><span>每条记录承诺前一条的哈希，配合只写存储与签名，事后改动可被发现。</span></li>
-            <li><strong>忠实解释</strong><span>解释必须引用实际命中的规则与证据，防止事后编造。</span></li>
-            <li><strong>审计问答</strong><span>对“为什么允许/拒绝”做检索式回答，并给出证据指针。</span></li>
-            <li><strong>异常检测</strong><span>用模型识别异常的放行率、越权覆盖与人工覆盖模式，主动告警。</span></li>
-            <li><strong>反事实复盘</strong><span>重放“若用旧版 Policy 会怎样”，支撑审计结论。</span></li>
-            <li><strong>隐私保护审计</strong><span>敏感字段自动遮盖，审计者验证性质而不必读取原始数据。</span></li>
-          </ul>
+        <article class="entry">
+          <header><span class="num">02</span><div><h3>可验证决策证据链</h3><p>解决审计：从“能查日志”升级为可追溯、可解释、防篡改。</p></div></header>
+          <div class="pipeline">
+            <div class="pipe-node"><b>结构化溯源采集</b><span>决策/Context/Policy/模型/工具/输出</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>哈希承诺链</b><span>WORM + 签名，逐条链接</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>证据检索 + 忠实解释</b><span>RAG 定位，解释引用命中规则</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>异常检测告警</b><span>越权覆盖、异常放行模式</span></div>
+          </div>
+          <p class="entry-note">从记录到承诺、再到解释与监控，证据链形成完整闭环。</p>
+        </article>
+        <article class="entry">
+          <header><span class="num">03</span><div><h3>反事实重放沙盒</h3><p>共享底座：让“测试”与“审计”用同一个可复现环境，消除割裂。</p></div></header>
+          <div class="pipeline">
+            <div class="pipe-node"><b>Trace + Policy 版本库</b><span>历史决策与各版本 Policy</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>重放 / 注入</b><span>回放历史、注入对抗场景</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>差分结果 + 证据快照</b><span>行为差异 + 可追溯证据</span></div><i class="pipe-arrow">→</i>
+            <div class="pipe-node"><b>双路输出</b><span>喂评测引擎算指标 / 喂证据链做复盘</span></div>
+          </div>
+          <p class="entry-note">这是把两个引擎粘在一起的中枢：测试与审计共享同一套事实来源。</p>
         </article>
       </div>
-      <div class="ai-map"><p><b>落点：</b>对抗式生成与差分测试进入「验证工具包」；难度校准、硬样本回流与自动评测进入「Benchmark 包」；结构化溯源、承诺链与忠实解释把「Policy 规范包」的 Decision Log / Trace 升级为防篡改证据链。对应 M5–6 的测试、M7–8 的 Replay 与 M9–10 的量化评估。</p></div>
+      <div class="ai-map"><p><b>为什么不再割裂：</b>三个引擎共享同一套 Trace 与 Policy 版本库——Benchmark 的用例、审计的证据、重放的场景互相印证，形成“生成 → 测试 → 沉淀 → 审计 → 反哺”的单一闭环。</p></div>
     </div></section>
     <section><div class="wrap">
       <div class="section-head"><div><div class="eyebrow">What SCUT delivers</div><h2>不是一份报告，而是五个可接管的交付包</h2></div><p>每个交付包既有设计说明，也有能在代表性业务场景中演示和验证的具体产物。</p></div>
