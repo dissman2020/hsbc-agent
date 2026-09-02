@@ -10,7 +10,7 @@
 <body>
   <header class="topbar"><div class="wrap nav">
     <div class="brand"><span class="mark"></span><b>HSBC × SCUT</b><span>Policy Governance</span></div>
-    <nav><a href="#why">为什么</a><a href="#architecture">怎么工作</a><a href="#plan">Phase 1</a><a href="#roles">双方分工</a><a href="#success">如何验收</a></nav>
+    <nav><a href="#why">为什么</a><a href="#architecture">怎么工作</a><a href="#plan">Phase 1</a><a href="#roles">双方分工</a><a href="#ai-boost">AI增强</a><a href="#success">如何验收</a></nav>
     <span class="pill"><i></i>Phase 1 · 12个月</span>
   </div></header>
   <main>
@@ -72,6 +72,35 @@
         <article class="role scut"><small>SCUT OWNS RESEARCH & METHODOLOGY</small><h3>SCUT负责</h3><ul><li>Policy生命周期、Context和证据模型</li><li>冲突、覆盖缺口和回归测试方法</li><li>Benchmark场景与预期结果数据集</li><li>Replay、Simulation和Evaluation方法</li><li>参考算法、脚本与验证原型</li><li>技术报告、论文和Phase 2准入评估</li></ul><p>不承担：Agent Hub生产UI、运行保障、正式系统运维。</p></article>
         <article class="role hsbc"><small>HSBC OWNS PRODUCT & PRODUCTION</small><h3>汇丰负责</h3><ul><li>提供Agent Hub设计和代表性用例</li><li>提供脱敏或合成的Policy、Trace与Decision Log</li><li>实现Policy创建、审批、发布和附着功能</li><li>接入OPA或其他Policy Engine及业务系统</li><li>建设正式测试、Replay、Dashboard与审计功能</li><li>负责安全、性能、合规、上线和持续运营</li></ul><p>双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。</p></article>
       </div>
+    </div></section>
+    <section id="ai-boost"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">AI research, applied</div><h2>用 AI 研究经验，把 Benchmark 与审计证据链做扎实</h2></div><p>这是 SCUT 研究能力的核心落点：让“好不好”可测量、可对抗、可持续进化；让“为什么这样判”可验证、可追溯、防篡改。</p></div>
+      <div class="ai-boost">
+        <article class="ai-block bench">
+          <header><span class="num">01</span><div><h3>增强 Benchmark</h3><p>从“人工写几个例子”升级为可对抗、可校准、可自进化的评价体系。</p></div></header>
+          <ul>
+            <li><strong>对抗式场景生成</strong><span>用 LLM 自动生成绕过、边界与对抗用例，补上人工漏掉的攻击面。</span></li>
+            <li><strong>覆盖引导缺口挖掘</strong><span>像模糊测试一样，按“哪条规则没命中、哪类 Context 没覆盖”自动补用例。</span></li>
+            <li><strong>新旧 Policy 差分测试</strong><span>同一批场景对比新旧版本，明确哪些从允许变拒绝、哪些是误伤。</span></li>
+            <li><strong>题目难度校准</strong><span>用测量学方法给场景打分，避免 benchmark 过易或过难。</span></li>
+            <li><strong>硬样本回流</strong><span>把线上被人工复核、难判的案例挖出来，持续扩充 benchmark。</span></li>
+            <li><strong>校准的自动评测</strong><span>对“部分允许 / 降级 / 复核”这类非二值结果自动打分，并与人工标注对齐。</span></li>
+          </ul>
+        </article>
+        <article class="ai-block audit">
+          <header><span class="num">02</span><div><h3>增强审计证据链</h3><p>从“能查日志”升级为可追溯、可解释、防篡改的证据闭环。</p></div></header>
+          <ul>
+            <li><strong>结构化全链路溯源</strong><span>决策 → Context → Policy 版本 → 模型/Agent/工具 → 输出，全程唯一 ID 与时间戳。</span></li>
+            <li><strong>防篡改承诺链</strong><span>每条记录承诺前一条的哈希，配合只写存储与签名，事后改动可被发现。</span></li>
+            <li><strong>忠实解释</strong><span>解释必须引用实际命中的规则与证据，防止事后编造。</span></li>
+            <li><strong>审计问答</strong><span>对“为什么允许/拒绝”做检索式回答，并给出证据指针。</span></li>
+            <li><strong>异常检测</strong><span>用模型识别异常的放行率、越权覆盖与人工覆盖模式，主动告警。</span></li>
+            <li><strong>反事实复盘</strong><span>重放“若用旧版 Policy 会怎样”，支撑审计结论。</span></li>
+            <li><strong>隐私保护审计</strong><span>敏感字段自动遮盖，审计者验证性质而不必读取原始数据。</span></li>
+          </ul>
+        </article>
+      </div>
+      <div class="ai-map"><p><b>落点：</b>对抗式生成与差分测试进入「验证工具包」；难度校准、硬样本回流与自动评测进入「Benchmark 包」；结构化溯源、承诺链与忠实解释把「Policy 规范包」的 Decision Log / Trace 升级为防篡改证据链。对应 M5–6 的测试、M7–8 的 Replay 与 M9–10 的量化评估。</p></div>
     </div></section>
     <section><div class="wrap">
       <div class="section-head"><div><div class="eyebrow">What SCUT delivers</div><h2>不是一份报告，而是五个可接管的交付包</h2></div><p>每个交付包既有设计说明，也有能在代表性业务场景中演示和验证的具体产物。</p></div>
