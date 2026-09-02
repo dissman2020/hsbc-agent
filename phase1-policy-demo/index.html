@@ -74,10 +74,10 @@
       </div>
     </div></section>
     <section id="ai-boost"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">AI research, applied</div><h2>三个切入点，一条可落地的 AI 架构</h2></div><p>不铺开一堆零散技巧，而是收敛成三个互相咬合的引擎：一个把 Benchmark 做成自进化闭环，一个把审计做成可验证证据链，一个用反事实沙盒把它们粘在同一个可复现环境里。</p></div>
+      <div class="section-head"><div><div class="eyebrow">AI research, applied</div><h2>三条协同链路，一套闭环架构</h2></div><p>以三个协同的引擎形成完整闭环：评测引擎让 Benchmark 持续进化，证据链让每次决策可验证，重放沙盒为测试与审计提供统一的可复现环境。</p></div>
       <div class="entries">
         <article class="entry">
-          <header><span class="num">01</span><div><h3>生成式对抗评测引擎</h3><p>解决 Benchmark：从静态用例集，升级成能自我生成、自我校准、自我进化的闭环。</p></div></header>
+          <header><span class="num">01</span><div><h3>生成式对抗评测引擎</h3><p>面向 Benchmark：把静态用例集升级成能自我生成、自我校准、自我进化的闭环。</p></div></header>
           <div class="pipeline">
             <div class="pipe-node"><b>LLM 生成器</b><span>对抗、边界、缺口场景</span></div><i class="pipe-arrow">→</i>
             <div class="pipe-node"><b>覆盖导向调度</b><span>未命中规则 / 未覆盖 Context</span></div><i class="pipe-arrow">→</i>
@@ -88,7 +88,7 @@
           <p class="entry-note">闭环：生成 → 执行 → 打分 → 回流。Benchmark 不是一次性交付，而是持续进化的资产。</p>
         </article>
         <article class="entry">
-          <header><span class="num">02</span><div><h3>可验证决策证据链</h3><p>解决审计：从“能查日志”升级为可追溯、可解释、防篡改。</p></div></header>
+          <header><span class="num">02</span><div><h3>可验证决策证据链</h3><p>面向审计：把“能查日志”升级为可追溯、可解释、防篡改。</p></div></header>
           <div class="pipeline">
             <div class="pipe-node"><b>结构化溯源采集</b><span>决策/Context/Policy/模型/工具/输出</span></div><i class="pipe-arrow">→</i>
             <div class="pipe-node"><b>哈希承诺链</b><span>WORM + 签名，逐条链接</span></div><i class="pipe-arrow">→</i>
@@ -98,17 +98,17 @@
           <p class="entry-note">从记录到承诺、再到解释与监控，证据链形成完整闭环。</p>
         </article>
         <article class="entry">
-          <header><span class="num">03</span><div><h3>反事实重放沙盒</h3><p>共享底座：让“测试”与“审计”用同一个可复现环境，消除割裂。</p></div></header>
+          <header><span class="num">03</span><div><h3>反事实重放沙盒</h3><p>共享底座：为“测试”与“审计”提供同一个可复现环境。</p></div></header>
           <div class="pipeline">
             <div class="pipe-node"><b>Trace + Policy 版本库</b><span>历史决策与各版本 Policy</span></div><i class="pipe-arrow">→</i>
             <div class="pipe-node"><b>重放 / 注入</b><span>回放历史、注入对抗场景</span></div><i class="pipe-arrow">→</i>
             <div class="pipe-node"><b>差分结果 + 证据快照</b><span>行为差异 + 可追溯证据</span></div><i class="pipe-arrow">→</i>
             <div class="pipe-node"><b>双路输出</b><span>喂评测引擎算指标 / 喂证据链做复盘</span></div>
           </div>
-          <p class="entry-note">这是把两个引擎粘在一起的中枢：测试与审计共享同一套事实来源。</p>
+          <p class="entry-note">作为共享执行环境，它把评测与审计统一到同一套事实来源上。</p>
         </article>
       </div>
-      <div class="ai-map"><p><b>为什么不再割裂：</b>三个引擎共享同一套 Trace 与 Policy 版本库——Benchmark 的用例、审计的证据、重放的场景互相印证，形成“生成 → 测试 → 沉淀 → 审计 → 反哺”的单一闭环。</p></div>
+      <div class="ai-map"><p><b>统一事实来源：</b>三个引擎共享同一套 Trace 与 Policy 版本库——Benchmark 的用例、审计的证据、重放的场景互相印证，形成“生成 → 测试 → 沉淀 → 审计 → 反哺”的单一闭环。</p></div>
     </div></section>
     <section><div class="wrap">
       <div class="section-head"><div><div class="eyebrow">What SCUT delivers</div><h2>不是一份报告，而是五个可接管的交付包</h2></div><p>每个交付包既有设计说明，也有能在代表性业务场景中演示和验证的具体产物。</p></div>
