@@ -10,19 +10,19 @@
   var archViews = {
     all: {
       title: '完整闭环',
-      copy: '上层负责“谁制定、谁审批、何时生效”；中层负责“每次Agent操作如何判断和执行”；下层负责“如何证明、评价和持续改进”。'
+      copy: '上层决定“谁制定、谁审批、何时生效”，并由算法一在发布前找出规则缺陷；中层由 OPA 对每次 Agent 操作作出判断并执行；下层负责证据、评价与改进，算法二在此验证决策与数据暴露的实际影响。'
     },
     before: {
       title: '上线前 · 管理与发布',
-      copy: 'Policy 从创建、评审审批到测试发布，确保只有经过验证的版本才能进入生产。'
+      copy: 'Policy 从创建、评审审批到测试发布；算法一在这一层介入，检查规则冲突、不可达、冗余覆盖与业务覆盖缺口，确保只有经过验证的版本才能进入生产。'
     },
     runtime: {
       title: '运行中 · Agent Hub 决策',
-      copy: '每一次重要动作都经过 Policy Adapter 与 Policy Engine 判断，再决定执行、拦截、降级或转人工。'
+      copy: '每一次重要动作都经过 Policy Adapter 与 OPA 判断，再决定执行、拦截、降级或转人工；如需加强 Agent 行为与自然语言约束，可叠加 AGT。'
     },
     after: {
       title: '运行后 · 证据与改进',
-      copy: '记录决策证据、重放与模拟、量化指标，并据此持续验证和优化 Policy。'
+      copy: 'OPA 决策日志留下事实来源，算法二据此做反事实重放与差分，其差分结果同时用于评价指标与审计复盘。'
     }
   };
 
@@ -61,62 +61,115 @@
     });
   });
 
-  // ---------- Timeline / Phase detail ----------
-  var phaseButtons = document.querySelectorAll('.timeline .phase[data-i]');
+  // ---------- Monthly plan (12 months) ----------
+  var monthGrid = document.getElementById('planMonths');
   var phaseDetail = document.getElementById('phaseDetail');
 
-  var phases = [
-    { tag: 'M1–2 · Gate 1', title: '看清问题', desc: '调研、差距分析、目标设计',
-      scut: '调研现有 Agent Hub 与 Policy 执行能力，梳理 Policy 生命周期、Context 与证据现状，明确差距与量化目标。',
-      hsbc: '提供 Agent Hub 设计文档、代表性用例与脱敏样本，确认范围与验收口径。',
-      deliver: '总体设计包：调研报告、差距分析、目标架构、路线图与任务清单。' },
-    { tag: 'M3–4 · Gate 2', title: '统一语言', desc: '生命周期、Context、日志',
-      scut: '定义 Policy 生命周期、元数据、Context 模型、Decision Log 与 Trace/审计证据格式。',
-      hsbc: '核对规范与现有系统是否匹配，提供真实或合成的 Trace、Decision Log 样例。',
-      deliver: 'Policy 规范包：生命周期、元数据、Context、Decision Log、Trace 与审计证据。' },
-    { tag: 'M5–6 · Gate 3', title: '上线前能测试', desc: '冲突、缺口、回归验证',
-      scut: '设计冲突、覆盖缺口与回归测试方法，产出参考脚本与验证原型。',
-      hsbc: '实现 Policy 创建、审批、发布与附着功能，接入 OPA 或其它 Policy Engine。',
-      deliver: '验证工具包：冲突、缺口、回归测试方法，以及参考脚本和原型。' },
-    { tag: 'M7–8 · Gate 4', title: '安全地试', desc: 'Replay、Simulation、Benchmark',
-      scut: '构建 Benchmark 场景与预期结果，定义 Replay 与 Simulation 方法并计算基线。',
-      hsbc: '建设正式测试、Replay、Dashboard 与审计功能，并在受控环境试运行。',
-      deliver: 'Benchmark 包：标准场景、预期结果、Replay 方法、指标和基线结果。' },
-    { tag: 'M9–10 · Gate 5', title: '量化好坏', desc: '指标、基线与治理报告',
-      scut: '计算覆盖率、误拦截、漏拦截、延迟与人工复核负担，形成治理报告。',
-      hsbc: '接入脱敏生产数据并维护基线，负责安全、性能、合规与持续运营。',
-      deliver: '治理报告：指标口径、基线与改进结论，支持 Phase 2 进入决策。' },
-    { tag: 'M11–12 · Gate 6', title: '验证与移交', desc: '总结、培训、Phase 2 评估',
-      scut: '整理最终报告、培训材料与论文初稿，评估 Phase 2 准入条件。',
-      hsbc: '完成验收、团队培训与上线运行交接，确认运维与审计闭环。',
-      deliver: '技术转移包：最终报告、培训、论文初稿与 Phase 2 准入评估。' }
+  var months = [
+    { m: 'M1', title: '启动与基线', gate: '',
+      goal: '看清问题：现有 Agent Hub 与 Policy 执行能力到底长什么样',
+      scut: '建立方法框架：调研 Agent Hub 现状、Policy 执行链路、Trace 与 Decision Log 现状，列出能力差距清单。',
+      hsbc: '提供 Agent Hub 设计文档、代表性用例与脱敏样本，确认合作范围。',
+      deliver: '调研提纲与差距清单初稿（D01 起步）。' },
+    { m: 'M2', title: '需求基线与口径', gate: 'Gate 1',
+      goal: '把 Phase 1 需求固化成 5 板块 11 功能点，并定义指标口径',
+      scut: '完成需求基线与量化目标口径初稿，明确覆盖率、误拦截、漏拦截等指标定义。',
+      hsbc: '确认 Scope、数据范围与验收门槛，与 SCUT 对齐指标定义。',
+      deliver: '需求基线与差距分析包（D01）。' },
+    { m: 'M3', title: '引擎选型收敛', gate: '',
+      goal: '把四个候选引擎的定位和分数说清楚',
+      scut: '完成 OPA / Cedar / AGT / Guardrails 的逐项评分与层级定位分析，搭建 OPA 参考环境。',
+      hsbc: '提供真实 Policy 样例与使用场景，协助评估集成成本。',
+      deliver: 'Policy Engine 调研选型包初稿（D02）。' },
+    { m: 'M4', title: '选型定稿与规范启动', gate: 'Gate 2',
+      goal: '选型结论落地，规范设计启动',
+      scut: 'D02 定稿（OPA 为主、AGT + OPA 可选）；启动 Policy 规范设计（D03）；专利 P1 技术交底评审。',
+      hsbc: '确认选型结论，启动 Policy 管理功能的工程评估。',
+      deliver: '调研选型包（D02）定稿；规范包（D03）启动。' },
+    { m: 'M5', title: '验证方法设计', gate: '',
+      goal: '算法一设计成型，覆盖冲突、冗余、不可达、缺口',
+      scut: '完成算法一（语义约束规则图缺陷检测）的设计与最小实现；启动验证测试工具包（D05）与算法原型包（D07）。',
+      hsbc: '提供控制矩阵或正负样例，用于定义“覆盖缺口”。',
+      deliver: '算法一设计说明与参考原型（D07 起步）。' },
+    { m: 'M6', title: '上线前能测试', gate: 'Gate 3',
+      goal: '冲突、缺口、回归三类检测方法可用',
+      scut: '完成冲突／缺口／不可达检测方法与回归测试方法；D05 验证测试工具包定稿；专利 P2 技术交底评审。',
+      hsbc: '实现 Policy 创建、审批、发布与附着功能，接入 OPA。',
+      deliver: '验证测试工具包（D05）；Policy 规范包（D03）定稿。' },
+    { m: 'M7', title: '重放与基准设计', gate: '',
+      goal: '算法二设计成型，Replay 与 Benchmark 方法定义清楚',
+      scut: '完成算法二（因果轨迹反事实重放）设计；定义 Replay / Simulation 方法；设计 Benchmark 场景与预期结果。',
+      hsbc: '提供历史 Trace 与 Decision Log，建设 Replay 与测试环境。',
+      deliver: '重放方法设计与基准场景集（D06 起步）。' },
+    { m: 'M8', title: '基准与重放落地', gate: 'Gate 4',
+      goal: '能在不影响生产的前提下比较新旧 Policy',
+      scut: 'D06 完成：标准场景、预期结果、Replay 方法、指标口径与基线结果；专利 P3 技术交底评审。',
+      hsbc: '在受控环境试运行，接入正式测试与 Dashboard。',
+      deliver: 'Replay / Simulation / Benchmark 包（D06）。' },
+    { m: 'M9', title: '指标与证据', gate: '',
+      goal: '用真实或脱敏数据算出第一版基线',
+      scut: '基于脱敏生产数据计算覆盖率、误拦截、漏拦截、延迟与人工复核负担；启动指标与治理证据包（D08）。',
+      hsbc: '接入脱敏生产数据并维护基线，保障数据合规使用。',
+      deliver: '指标与治理证据包初稿（D08）。' },
+    { m: 'M10', title: '量化与治理结论', gate: 'Gate 5',
+      goal: '把“好坏”变成可比较、可汇报的结论',
+      scut: 'D08 定稿：指标口径、基线与改进结论；D04 参考实现收敛，D07 算法原型包收口。',
+      hsbc: '完成 OPA 集成与安全、性能、合规评审。',
+      deliver: '指标与治理证据包（D08）；Phase I 算法原型包（D07）。' },
+    { m: 'M11', title: '验收与技术转移', gate: '',
+      goal: '成果可被工程团队直接接管',
+      scut: '撰写最终技术验收报告（D10）与技术转移培训包（D11），完善专利技术交底书（D09）。',
+      hsbc: '组织验收，安排团队培训与上线运行交接。',
+      deliver: '最终报告与培训包（D10 / D11）。' },
+    { m: 'M12', title: '收口与 Phase 2 评估', gate: 'Gate 6',
+      goal: '决定 Phase 2 是否具备进入条件',
+      scut: '完成验收答辩与材料移交，给出 Phase 2 准入评估结论。',
+      hsbc: '确认运维与审计闭环，决定 Phase 2 立项。',
+      deliver: 'Phase 2 准入评估；D01–D11 交付闭环。' }
   ];
 
-  function renderPhase(i) {
-    var p = phases[i];
+  function buildMonthButtons() {
+    if (!monthGrid) return;
+    var html = '';
+    months.forEach(function (mo, i) {
+      html += '<button class="month' + (i === 0 ? ' active' : '') + '" data-m="' + i + '">' +
+        (mo.gate ? '<span class="gate">' + mo.gate + '</span>' : '') +
+        '<span>' + mo.m + '</span>' +
+        '<h3>' + mo.title + '</h3>' +
+        '</button>';
+    });
+    monthGrid.innerHTML = html;
+  }
+
+  function renderMonth(i) {
+    var mo = months[i];
     phaseDetail.innerHTML =
-      '<div><span class="tag">' + p.tag + '</span>' +
-      '<h3>' + p.title + '</h3>' +
-      '<p>' + p.desc + '</p>' +
-      '<ul><li><b>SCUT 重点：</b>' + p.scut + '</li>' +
-      '<li><b>汇丰配合：</b>' + p.hsbc + '</li></ul></div>' +
-      '<div><h3>可验收交付</h3><p>' + p.deliver + '</p></div>';
+      '<div><span class="tag">' + mo.m + (mo.gate ? ' · ' + mo.gate : '') + '</span>' +
+      '<h3>' + mo.title + '</h3>' +
+      '<p>' + mo.goal + '</p>' +
+      '<ul><li><b>SCUT 重点：</b>' + mo.scut + '</li>' +
+      '<li><b>汇丰配合：</b>' + mo.hsbc + '</li></ul></div>' +
+      '<div><h3>可验收交付</h3><p>' + mo.deliver + '</p></div>';
   }
 
-  function setPhase(i) {
-    phaseButtons.forEach(function (btn) {
-      btn.classList.toggle('active', Number(btn.getAttribute('data-i')) === i);
+  function setMonth(i) {
+    var btns = monthGrid ? monthGrid.querySelectorAll('.month[data-m]') : [];
+    btns.forEach(function (btn) {
+      btn.classList.toggle('active', Number(btn.getAttribute('data-m')) === i);
     });
-    renderPhase(i);
+    renderMonth(i);
   }
 
-  phaseButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      setPhase(Number(btn.getAttribute('data-i')));
+  buildMonthButtons();
+  if (monthGrid) {
+    monthGrid.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.month[data-m]') : null;
+      if (!btn || !monthGrid.contains(btn)) return;
+      setMonth(Number(btn.getAttribute('data-m')));
     });
-  });
+  }
 
   // ---------- Init defaults ----------
   setArchView('all');
-  setPhase(0);
+  setMonth(0);
 })();

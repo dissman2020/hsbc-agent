@@ -1,3 +1,15 @@
 Thumbs.db
 .DS_Store
 desktop.ini
+
+# 本地工作数据（会话记忆、临时缓存）——不进入仓库
+.workbuddy/
+.codex/
+
+# 合作方需求文档与内部材料——仓库为 public，禁止提交
+需求/
+*.docx
+
+# 临时渲染 / 提取产物
+.tmp*/
+*.tmp
