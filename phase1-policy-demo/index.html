@@ -3,349 +3,356 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="HSBC × SCUT Agent Hub Policy Governance Phase 1">
+  <meta name="description" content="HSBC × SCUT Agent Hub Policy Governance Phase 1" data-i18n="page.desc" data-i18n-attr="content">
   <title>HSBC × SCUT · Policy Governance Phase 1</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar"><div class="wrap nav">
     <div class="brand"><span class="mark"></span><b>HSBC × SCUT</b><span>Policy Governance</span></div>
-    <nav><a href="#why">为什么</a><a href="#architecture">怎么工作</a><a href="#engines">引擎选型</a><a href="#algorithms">两个算法</a><a href="#plan">Phase 1</a><a href="#roles">双方分工</a><a href="#deliverables">交付什么</a></nav>
-    <span class="pill"><i></i>Phase 1 · 12个月</span>
+    <nav><a href="#why" data-i18n="nav.why">为什么</a><a href="#architecture" data-i18n="nav.work">怎么工作</a><a href="#engines" data-i18n="nav.engines">引擎选型</a><a href="#algorithms" data-i18n="nav.algorithms">两个算法</a><a href="#plan" data-i18n="nav.plan">Phase 1</a><a href="#roles" data-i18n="nav.roles">双方分工</a><a href="#deliverables" data-i18n="nav.deliver">交付什么</a></nav>
+    <div class="nav-right">
+      <span class="pill"><i></i><span data-i18n="nav.pill">Phase 1 · 12个月</span></span>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" class="active">中</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
   </div></header>
   <main>
     <section class="hero"><div class="wrap">
       <div class="eyebrow">Agent Hub Policy Governance · Phase 1</div>
-      <h1>不是再造一个引擎，<br>而是让每次 Agent 决策都<br><em>管得住、测得准、说得清</em></h1>
-      <p class="lead">汇丰已有 Agent Hub 和确定性 Policy 执行能力。Phase 1要补齐的是治理基础：Policy可管理、上线前可测试、运行中可度量、事后可审计。</p>
-      <div class="actions"><a class="primary" href="#architecture">看懂整套方案</a><a class="secondary" href="#plan">查看12个月计划</a></div>
-      <div class="one-line"><b>一句话分工</b><p><strong>SCUT</strong>研究方法和算法、定义规范与评价口径；<strong>汇丰</strong>把这些成果接入现有Agent Hub，建设生产功能并负责上线运行。</p></div>
+      <h1 data-i18n="hero.h1">不是再造一个引擎，<br>而是让每次 Agent 决策都<br><em>管得住、测得准、说得清</em></h1>
+      <p class="lead" data-i18n="hero.lead">汇丰已有 Agent Hub 和确定性 Policy 执行能力。Phase 1要补齐的是治理基础：Policy可管理、上线前可测试、运行中可度量、事后可审计。</p>
+      <div class="actions"><a class="primary" href="#architecture" data-i18n="hero.cta1">看懂整套方案</a><a class="secondary" href="#plan" data-i18n="hero.cta2">查看12个月计划</a></div>
+      <div class="one-line"><b data-i18n="hero.oneline.label">一句话分工</b><p data-i18n="hero.oneline.body"><strong>SCUT</strong>研究方法和算法、定义规范与评价口径；<strong>汇丰</strong>把这些成果接入现有Agent Hub，建设生产功能并负责上线运行。</p></div>
     </div></section>
     <section id="why"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Why now</div><h2>汇丰现在缺的，不是“会不会拦截”</h2></div><p>OPA、Cedar等工具擅长根据明确规则给出允许或拒绝。更困难的是：规则怎么管理、是否正确、升级会不会出问题、出了问题能否还原。</p></div>
+      <div class="section-head"><div><div class="eyebrow">Why now</div><h2 data-i18n="why.h2">汇丰现在缺的，不是“会不会拦截”</h2></div><p data-i18n="why.p">OPA、Cedar等工具擅长根据明确规则给出允许或拒绝。更困难的是：规则怎么管理、是否正确、升级会不会出问题、出了问题能否还原。</p></div>
       <div class="problem-grid">
-        <article class="problem"><span class="num">01</span><h3>Policy越来越多，谁负责？</h3><p>版本、责任人、审批状态和生效范围不清楚，容易出现旧规则仍在运行。</p><b>→ 建立完整生命周期</b></article>
-        <article class="problem"><span class="num">02</span><h3>上线前，怎么知道不会误伤？</h3><p>缺少标准场景和预期结果，Policy修改后无法系统判断是改善还是倒退。</p><b>→ 建立测试、Replay与Benchmark</b></article>
-        <article class="problem"><span class="num">03</span><h3>事后，为什么允许了？</h3><p>没有统一Decision Log和Trace，就无法还原当时用户、Agent、工具、数据与Policy版本。</p><b>→ 建立可审计证据链</b></article>
+        <article class="problem"><span class="num">01</span><h3 data-i18n="why.p1.h">Policy越来越多，谁负责？</h3><p data-i18n="why.p1.p">版本、责任人、审批状态和生效范围不清楚，容易出现旧规则仍在运行。</p><b data-i18n="why.p1.b">→ 建立完整生命周期</b></article>
+        <article class="problem"><span class="num">02</span><h3 data-i18n="why.p2.h">上线前，怎么知道不会误伤？</h3><p data-i18n="why.p2.p">缺少标准场景和预期结果，Policy修改后无法系统判断是改善还是倒退。</p><b data-i18n="why.p2.b">→ 建立测试、Replay与Benchmark</b></article>
+        <article class="problem"><span class="num">03</span><h3 data-i18n="why.p3.h">事后，为什么允许了？</h3><p data-i18n="why.p3.p">没有统一Decision Log和Trace，就无法还原当时用户、Agent、工具、数据与Policy版本。</p><b data-i18n="why.p3.b">→ 建立可审计证据链</b></article>
       </div>
     </div></section>
     <section id="architecture"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">The operating model</div><h2>把 OPA 放进一个完整闭环</h2></div><p>点击模块查看作用。引擎选型和两个算法的落点已经明确：中间是 OPA，上线前由算法一找规则缺陷，运行后由算法二验证实际影响。</p></div>
+      <div class="section-head"><div><div class="eyebrow">The operating model</div><h2 data-i18n="arch.h2">把 OPA 放进一个完整闭环</h2></div><p data-i18n="arch.p">点击模块查看作用。引擎选型和两个算法的落点已经明确：中间是 OPA，上线前由算法一找规则缺陷，运行后由算法二验证实际影响。</p></div>
       <div class="arch">
-        <div class="arch-tabs"><button class="active" data-view="all">完整闭环</button><button data-view="before">上线前</button><button data-view="runtime">运行中</button><button data-view="after">运行后</button></div>
-        <div class="layer layer-a" data-stage="before"><div class="layer-title">A · 管理与发布<small>Before runtime</small></div><div class="nodes"><button data-title="Policy Workspace" data-copy="统一创建和维护Policy，记录责任人、版本、适用范围与变更原因。">Policy Workspace</button><button data-title="Review &amp; Approval" data-copy="Policy必须经过评审与审批，才能从草稿进入测试或生产。">Review &amp; Approval</button><button data-title="缺陷检测 · 算法一" data-copy="部署前检查规则冲突、不可达、冗余覆盖与业务覆盖缺口，输出缺陷位置与见证输入；编译与正确性校验复用OPA原生check/build，不重复造轮子。">缺陷检测 · 算法一</button><button data-title="Test &amp; Release" data-copy="使用标准测试集验证结果，再按受控流程发布到Agent Hub。">Test &amp; Release</button></div></div>
-        <div class="layer layer-b" data-stage="runtime"><div class="layer-title">B · Agent Hub运行<small>During runtime</small></div><div class="nodes"><button data-title="Agent Hub" data-copy="接收业务请求，编排Agent、模型、工具和数据系统，是现有业务底座。">Agent Hub</button><button data-title="Policy Adapter" data-copy="把用户、Agent、工具、数据等级和业务场景整理成统一格式。">Policy Adapter</button><button data-title="Policy Engine · OPA" data-copy="选型结论：OPA为主引擎，依据明确Policy返回允许、拒绝、人工复核或降级处理；若要同时加强Agent行为管控与自然语言约束，可叠加AGT。">Policy Engine · OPA</button><button data-title="Enforcement" data-copy="真正放行工具调用、阻止请求、隐藏敏感内容，或转交人工。">Enforcement</button><button data-title="Business &amp; Data" data-copy="Agent最终调用的业务服务、工具和数据资源；通过Policy判断后才能访问。">Business &amp; Data</button></div></div>
-        <div class="layer layer-c" data-stage="after"><div class="layer-title">C · 证据与改进<small>After runtime</small></div><div class="nodes"><button data-title="Decision Log" data-copy="记录每次判断使用的Context、Policy版本、结果和原因，是算法二重放的事实来源。">Decision Log</button><button data-title="反事实重放 · 算法二" data-copy="基于真实Trace与Policy版本快照，在隔离沙箱中只修改指定条件重跑，比较事实与反事实执行的差异，并定位导致结果翻转的最小致因。">反事实重放 · 算法二</button><button data-title="Evaluation" data-copy="用重放产生的差分结果计算覆盖率、误拦截、漏拦截、延迟和人工复核负担。">Evaluation</button><button data-title="Phase 2 Advisor" data-copy="Phase 1成熟后再研究智能Policy建议；先建议、后审批。">Phase 2 Advisor</button></div></div>
-        <div class="detail" id="archDetail"><strong>完整闭环</strong><span>上层决定“谁制定、谁审批、何时生效”，并由算法一在发布前找出规则缺陷；中层由 OPA 对每次 Agent 操作作出判断并执行；下层负责证据、评价与改进，算法二在此验证决策与数据暴露的实际影响。</span></div>
+        <div class="arch-tabs"><button class="active" data-view="all" data-i18n="arch.tab.all">完整闭环</button><button data-view="before" data-i18n="arch.tab.before">上线前</button><button data-view="runtime" data-i18n="arch.tab.runtime">运行中</button><button data-view="after" data-i18n="arch.tab.after">运行后</button></div>
+        <div class="layer layer-a" data-stage="before"><div class="layer-title"><span data-i18n="arch.layerA.title">A · 管理与发布</span><small data-i18n="arch.layerA.sub">Before runtime</small></div><div class="nodes"><button data-i18n="n.workspace.label" data-i18n-title="n.workspace.title" data-i18n-copy="n.workspace.copy" data-title="Policy Workspace" data-copy="统一创建和维护Policy，记录责任人、版本、适用范围与变更原因。">Policy Workspace</button><button data-i18n="n.review.label" data-i18n-title="n.review.title" data-i18n-copy="n.review.copy" data-title="Review &amp; Approval" data-copy="Policy必须经过评审与审批，才能从草稿进入测试或生产。">Review &amp; Approval</button><button data-i18n="n.defect.label" data-i18n-title="n.defect.title" data-i18n-copy="n.defect.copy" data-title="缺陷检测 · 算法一" data-copy="部署前检查规则冲突、不可达、冗余覆盖与业务覆盖缺口，输出缺陷位置与见证输入；编译与正确性校验复用OPA原生check/build，不重复造轮子。">缺陷检测 · 算法一</button><button data-i18n="n.release.label" data-i18n-title="n.release.title" data-i18n-copy="n.release.copy" data-title="Test &amp; Release" data-copy="使用标准测试集验证结果，再按受控流程发布到Agent Hub。">Test &amp; Release</button></div></div>
+        <div class="layer layer-b" data-stage="runtime"><div class="layer-title"><span data-i18n="arch.layerB.title">B · Agent Hub运行</span><small data-i18n="arch.layerB.sub">During runtime</small></div><div class="nodes"><button data-i18n="n.hub.label" data-i18n-title="n.hub.title" data-i18n-copy="n.hub.copy" data-title="Agent Hub" data-copy="接收业务请求，编排Agent、模型、工具和数据系统，是现有业务底座。">Agent Hub</button><button data-i18n="n.adapter.label" data-i18n-title="n.adapter.title" data-i18n-copy="n.adapter.copy" data-title="Policy Adapter" data-copy="把用户、Agent、工具、数据等级和业务场景整理成统一格式。">Policy Adapter</button><button data-i18n="n.opa.label" data-i18n-title="n.opa.title" data-i18n-copy="n.opa.copy" data-title="Policy Engine · OPA" data-copy="选型结论：OPA为主引擎，依据明确Policy返回允许、拒绝、人工复核或降级处理；若要同时加强Agent行为管控与自然语言约束，可叠加AGT。">Policy Engine · OPA</button><button data-i18n="n.enforce.label" data-i18n-title="n.enforce.title" data-i18n-copy="n.enforce.copy" data-title="Enforcement" data-copy="真正放行工具调用、阻止请求、隐藏敏感内容，或转交人工。">Enforcement</button><button data-i18n="n.biz.label" data-i18n-title="n.biz.title" data-i18n-copy="n.biz.copy" data-title="Business &amp; Data" data-copy="Agent最终调用的业务服务、工具和数据资源；通过Policy判断后才能访问。">Business &amp; Data</button></div></div>
+        <div class="layer layer-c" data-stage="after"><div class="layer-title"><span data-i18n="arch.layerC.title">C · 证据与改进</span><small data-i18n="arch.layerC.sub">After runtime</small></div><div class="nodes"><button data-i18n="n.log.label" data-i18n-title="n.log.title" data-i18n-copy="n.log.copy" data-title="Decision Log" data-copy="记录每次判断使用的Context、Policy版本、结果和原因，是算法二重放的事实来源。">Decision Log</button><button data-i18n="n.replay.label" data-i18n-title="n.replay.title" data-i18n-copy="n.replay.copy" data-title="反事实重放 · 算法二" data-copy="基于真实Trace与Policy版本快照，在隔离沙箱中只修改指定条件重跑，比较事实与反事实执行的差异，并定位导致结果翻转的最小致因。">反事实重放 · 算法二</button><button data-i18n="n.eval.label" data-i18n-title="n.eval.title" data-i18n-copy="n.eval.copy" data-title="Evaluation" data-copy="用重放产生的差分结果计算覆盖率、误拦截、漏拦截、延迟和人工复核负担。">Evaluation</button><button data-i18n="n.advisor.label" data-i18n-title="n.advisor.title" data-i18n-copy="n.advisor.copy" data-title="Phase 2 Advisor" data-copy="Phase 1成熟后再研究智能Policy建议；先建议、后审批。">Phase 2 Advisor</button></div></div>
+        <div class="detail" id="archDetail"><strong data-i18n="av.all.title">完整闭环</strong><span data-i18n="av.all.copy">上层决定“谁制定、谁审批、何时生效”，并由算法一在发布前找出规则缺陷；中层由 OPA 对每次 Agent 操作作出判断并执行；下层负责证据、评价与改进，算法二在此验证决策与数据暴露的实际影响。</span></div>
       </div>
     </div></section>
 
     <section><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">A simple story</div><h2>用一个业务请求看懂交互流程</h2></div><p>不用专业缩写：一位员工请Agent汇总受限客户资料，系统需要同时判断人、数据、用途和工具。</p></div>
+      <div class="section-head"><div><div class="eyebrow">A simple story</div><h2 data-i18n="story.h2">用一个业务请求看懂交互流程</h2></div><p data-i18n="story.p">不用专业缩写：一位员工请Agent汇总受限客户资料，系统需要同时判断人、数据、用途和工具。</p></div>
       <div class="story">
-        <article class="story-copy"><div class="persona"><span>李</span><div><b>业务员工 李女士</b><small>企业业务团队</small></div></div><h3>她向Agent提出请求</h3><blockquote>“请汇总这家客户的基本信息，并生成一份内部沟通摘要。”</blockquote><p>系统不能只判断“她是不是员工”，还要结合她的角色、数据敏感等级、用途、准备调用的工具，以及当前Policy版本。</p></article>
+        <article class="story-copy"><div class="persona"><span>李</span><div><b data-i18n="story.persona.name">业务员工 李女士</b><small data-i18n="story.persona.role">企业业务团队</small></div></div><h3 data-i18n="story.h3">她向Agent提出请求</h3><blockquote data-i18n="story.quote">“请汇总这家客户的基本信息，并生成一份内部沟通摘要。”</blockquote><p data-i18n="story.body">系统不能只判断“她是不是员工”，还要结合她的角色、数据敏感等级、用途、准备调用的工具，以及当前Policy版本。</p></article>
         <div class="flow">
-          <div class="flow-step"><i>1</i><div><b>Agent Hub理解任务</b><small>准备查询客户资料并生成摘要</small></div><span class="status ok">继续</span></div>
-          <div class="arrow"></div><div class="flow-step"><i>2</i><div><b>Policy Adapter整理Context</b><small>用户角色、数据等级、用途、工具、Policy版本</small></div><span class="status ok">信息完整</span></div>
-          <div class="arrow"></div><div class="flow-step"><i>3</i><div><b>Policy Engine作出判断</b><small>基本信息可访问；受限字段需要更高权限</small></div><span class="status review">部分允许</span></div>
-          <div class="arrow"></div><div class="flow-step"><i>4</i><div><b>Agent Hub执行限制</b><small>只返回允许字段，隐藏受限内容</small></div><span class="status blocked">已阻止</span></div>
-          <div class="arrow"></div><div class="flow-step"><i>5</i><div><b>留下完整证据</b><small>记录Context、Policy版本、判断和执行动作</small></div><span class="status ok">可审计</span></div>
+          <div class="flow-step"><i>1</i><div><b data-i18n="story.s1.b">Agent Hub理解任务</b><small data-i18n="story.s1.s">准备查询客户资料并生成摘要</small></div><span class="status ok" data-i18n="story.s1.st">继续</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>2</i><div><b data-i18n="story.s2.b">Policy Adapter整理Context</b><small data-i18n="story.s2.s">用户角色、数据等级、用途、工具、Policy版本</small></div><span class="status ok" data-i18n="story.s2.st">信息完整</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>3</i><div><b data-i18n="story.s3.b">Policy Engine作出判断</b><small data-i18n="story.s3.s">基本信息可访问；受限字段需要更高权限</small></div><span class="status review" data-i18n="story.s3.st">部分允许</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>4</i><div><b data-i18n="story.s4.b">Agent Hub执行限制</b><small data-i18n="story.s4.s">只返回允许字段，隐藏受限内容</small></div><span class="status blocked" data-i18n="story.s4.st">已阻止</span></div>
+          <div class="arrow"></div><div class="flow-step"><i>5</i><div><b data-i18n="story.s5.b">留下完整证据</b><small data-i18n="story.s5.s">记录Context、Policy版本、判断和执行动作</small></div><span class="status ok" data-i18n="story.s5.st">可审计</span></div>
         </div>
       </div>
     </div></section>
 
     <section id="engines"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Engine selection</div><h2>四个候选引擎，一个可落地的选型结论</h2></div><p>先把 Phase 1 需求拆成 5 个板块、11 个功能点，再对四个开源引擎逐项打分（5 分制，外加开发难度与稳定性），最后结合定位给出结论。TrueFoundry 因未找到开源代码，不纳入比较。</p></div>
+      <div class="section-head"><div><div class="eyebrow">Engine selection</div><h2 data-i18n="eng.h2">四个候选引擎，一个可落地的选型结论</h2></div><p data-i18n="eng.p">先把 Phase 1 需求拆成 5 个板块、11 个功能点，再对四个开源引擎逐项打分（5 分制，外加开发难度与稳定性），最后结合定位给出结论。TrueFoundry 因未找到开源代码，不纳入比较。</p></div>
       <div class="req-grid">
-        <article><span>01</span><b>Policy 管理</b><small>1.1 加载 Policy 及相关数据<br>1.2 版本、所有权、审查中／已通过／已部署状态管理</small></article>
-        <article><span>02</span><b>上下文接收与决策</b><small>2.1 接收用户信息、Agent 输出等结构化上下文<br>2.2 支持多种决策结果<br>2.3 意外情况下默认拒绝或转人工</small></article>
-        <article><span>03</span><b>Policy 验证与分析</b><small>3.1 部署前的编译与正确性检查<br>3.2 冲突检测、缺口检测、规则不可达检测</small></article>
-        <article><span>04</span><b>Policy 测试</b><small>4.1 提供自定义测试接口和函数<br>4.2 支持回归、回放测试</small></article>
-        <article><span>05</span><b>追踪与审计</b><small>5.1 记录每次查询的中间信息<br>5.2 指标统计（FP/FN、覆盖率、冲突率、延迟等）</small></article>
+        <article><span>01</span><b data-i18n="eng.req1.b">Policy 管理</b><small data-i18n="eng.req1.s">1.1 加载 Policy 及相关数据<br>1.2 版本、所有权、审查中／已通过／已部署状态管理</small></article>
+        <article><span>02</span><b data-i18n="eng.req2.b">上下文接收与决策</b><small data-i18n="eng.req2.s">2.1 接收用户信息、Agent 输出等结构化上下文<br>2.2 支持多种决策结果<br>2.3 意外情况下默认拒绝或转人工</small></article>
+        <article><span>03</span><b data-i18n="eng.req3.b">Policy 验证与分析</b><small data-i18n="eng.req3.s">3.1 部署前的编译与正确性检查<br>3.2 冲突检测、缺口检测、规则不可达检测</small></article>
+        <article><span>04</span><b data-i18n="eng.req4.b">Policy 测试</b><small data-i18n="eng.req4.s">4.1 提供自定义测试接口和函数<br>4.2 支持回归、回放测试</small></article>
+        <article><span>05</span><b data-i18n="eng.req5.b">追踪与审计</b><small data-i18n="eng.req5.s">5.1 记录每次查询的中间信息<br>5.2 指标统计（FP/FN、覆盖率、冲突率、延迟等）</small></article>
       </div>
 
       <div class="eng-tiers">
         <div class="eng-tier">
-          <div class="tier-label"><b>底层策略决策层</b><small>给出确定性的 allow / deny 判断，是真正的“判断器”。</small></div>
+          <div class="tier-label"><b data-i18n="eng.tier1.b">底层策略决策层</b><small data-i18n="eng.tier1.s">给出确定性的 allow / deny 判断，是真正的“判断器”。</small></div>
           <div class="eng-cards">
-            <article class="eng"><header><h3>OPA</h3><span class="badge rec">建议主引擎</span></header><p>通用策略决策框架，核心特色是<b>policy-as-code</b>：用代码形式的条件语句表达约束，决策结果稳定、确定性强。</p><small>总分 48 / 60 · 四项中最高</small></article>
-            <article class="eng"><header><h3>Cedar</h3><span class="badge">授权关系</span></header><p>同属底层决策框架，特色是<b>围绕授权关系</b>判断（什么身份才能做什么事）。表达与约束范围更小，处理授权关系时更顺手。</p><small>总分 40 / 60</small></article>
+            <article class="eng"><header><h3>OPA</h3><span class="badge rec" data-i18n="eng.opa.badge">建议主引擎</span></header><p data-i18n="eng.opa.p">通用策略决策框架，核心特色是<b>policy-as-code</b>：用代码形式的条件语句表达约束，决策结果稳定、确定性强。</p><small data-i18n="eng.opa.s">总分 48 / 60 · 四项中最高</small></article>
+            <article class="eng"><header><h3>Cedar</h3><span class="badge" data-i18n="eng.cedar.badge">授权关系</span></header><p data-i18n="eng.cedar.p">同属底层决策框架，特色是<b>围绕授权关系</b>判断（什么身份才能做什么事）。表达与约束范围更小，处理授权关系时更顺手。</p><small data-i18n="eng.cedar.s">总分 40 / 60</small></article>
           </div>
         </div>
         <div class="eng-tier">
-          <div class="tier-label"><b>运行时中间层</b><small>在 Agent 行动流程中设检查点，可调用底层引擎取决策。</small></div>
+          <div class="tier-label"><b data-i18n="eng.tier2.b">运行时中间层</b><small data-i18n="eng.tier2.s">在 Agent 行动流程中设检查点，可调用底层引擎取决策。</small></div>
           <div class="eng-cards">
-            <article class="eng"><header><h3>AGT</h3><span class="badge alt">与 OPA 相性最佳</span></header><p>以 <b>Agent 行动流程</b>为中心：从启动、调用模型与工具到结果返回，每步前后设检查点拦截。优点是把拦截过程标准化，不必自行编写相关代码。</p><small>总分 46 / 60</small></article>
-            <article class="eng"><header><h3>Guardrails</h3><span class="badge">内容安全</span></header><p>以 <b>LLM 内容安全</b>为中心，重点判断输入输出是否安全。对自然语言描述的 Policy 很友好，但判断依赖 LLM、不确定性较高，更适合提示词注入等场景。</p><small>总分 41 / 60</small></article>
+            <article class="eng"><header><h3>AGT</h3><span class="badge alt" data-i18n="eng.agt.badge">与 OPA 相性最佳</span></header><p data-i18n="eng.agt.p">以 <b>Agent 行动流程</b>为中心：从启动、调用模型与工具到结果返回，每步前后设检查点拦截。优点是把拦截过程标准化，不必自行编写相关代码。</p><small data-i18n="eng.agt.s">总分 46 / 60</small></article>
+            <article class="eng"><header><h3>Guardrails</h3><span class="badge" data-i18n="eng.guard.badge">内容安全</span></header><p data-i18n="eng.guard.p">以 <b>LLM 内容安全</b>为中心，重点判断输入输出是否安全。对自然语言描述的 Policy 很友好，但判断依赖 LLM、不确定性较高，更适合提示词注入等场景。</p><small data-i18n="eng.guard.s">总分 41 / 60</small></article>
           </div>
         </div>
       </div>
 
       <div class="eng-bottom">
         <div class="eng-example">
-          <div class="eyebrow">同一个需求，四种判断方式</div>
-          <h3>“把内网客户名单发到我的 Gmail”</h3>
+          <div class="eyebrow" data-i18n="eng.ex.eyebrow">同一个需求，四种判断方式</div>
+          <h3 data-i18n="eng.ex.h3">“把内网客户名单发到我的 Gmail”</h3>
           <ul>
-            <li><b>AGT</b><span>在 send_email 调用前后设检查点，逐个行动判断是否 allow</span></li>
-            <li><b>Guardrails</b><span>调用 LLM 判断语义 → 识别“敏感数据外泄” → deny</span></li>
-            <li><b>OPA</b><span>用 Rego 条件语句直接判断，结果确定、可复现</span></li>
-            <li><b>Cedar</b><span>先定义授权模型（动作主体必须是 Agent、资源必须是 DataAsset），再判 permit / deny</span></li>
+            <li><b>AGT</b><span data-i18n="eng.ex.agt">在 send_email 调用前后设检查点，逐个行动判断是否 allow</span></li>
+            <li><b>Guardrails</b><span data-i18n="eng.ex.guard">调用 LLM 判断语义 → 识别“敏感数据外泄” → deny</span></li>
+            <li><b>OPA</b><span data-i18n="eng.ex.opa">用 Rego 条件语句直接判断，结果确定、可复现</span></li>
+            <li><b>Cedar</b><span data-i18n="eng.ex.cedar">先定义授权模型（动作主体必须是 Agent、资源必须是 DataAsset），再判 permit / deny</span></li>
           </ul>
         </div>
         <div class="eng-score">
-          <div class="eyebrow">综合评分（12 项 × 5 分）</div>
+          <div class="eyebrow" data-i18n="eng.score.eyebrow">综合评分（12 项 × 5 分）</div>
           <div class="es-row"><b>OPA</b><i style="--w:100%"></i><span>48</span></div>
           <div class="es-row"><b>AGT</b><i style="--w:95.8%"></i><span>46</span></div>
           <div class="es-row"><b>Guardrails</b><i style="--w:85.4%"></i><span>41</span></div>
           <div class="es-row"><b>Cedar</b><i style="--w:83.3%"></i><span>40</span></div>
-          <p class="es-note">OPA 版本稳定、规则是直观的条件判断语句、长期维护时接口不易变；Cedar 除写规则还要定义较多授权模型，相对麻烦；AGT 开源版迭代快、稳定性偏弱，但对 Rego 有专门适配，与 OPA 相性很好；Guardrails 多数判断依赖 LLM，不稳定。</p>
+          <p class="es-note" data-i18n="eng.score.note">OPA 版本稳定、规则是直观的条件判断语句、长期维护时接口不易变；Cedar 除写规则还要定义较多授权模型，相对麻烦；AGT 开源版迭代快、稳定性偏弱，但对 Rego 有专门适配，与 OPA 相性很好；Guardrails 多数判断依赖 LLM，不稳定。</p>
         </div>
       </div>
 
-      <div class="conclusion"><b>选型结论</b><p>只选一个底层引擎 → <strong>OPA</strong>；若要同时加强 Agent 行为管控与自然语言约束 → <strong>AGT + OPA</strong>。两套算法正建立在这个结论之上：算法一依赖 OPA 规则的可解析性，算法二依赖 OPA／AGT 的决策日志与沙箱能力。</p></div>
+      <div class="conclusion"><b data-i18n="eng.concl.b">选型结论</b><p data-i18n="eng.concl.p">只选一个底层引擎 → <strong>OPA</strong>；若要同时加强 Agent 行为管控与自然语言约束 → <strong>AGT + OPA</strong>。两套算法正建立在这个结论之上：算法一依赖 OPA 规则的可解析性，算法二依赖 OPA／AGT 的决策日志与沙箱能力。</p></div>
     </div></section>
 
     <section id="algorithms"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">SCUT research core</div><h2>两个算法：部署前找问题，运行后验影响</h2></div><p>这两个算法不是额外的研究设想，而是针对调研评分里分数最低的三格——冲突缺口检测、回归回放、指标统计，四个引擎在这三格上几乎都是空白。</p></div>
+      <div class="section-head"><div><div class="eyebrow">SCUT research core</div><h2 data-i18n="alg.h2">两个算法：部署前找问题，运行后验影响</h2></div><p data-i18n="alg.p">这两个算法不是额外的研究设想，而是针对调研评分里分数最低的三格——冲突缺口检测、回归回放、指标统计，四个引擎在这三格上几乎都是空白。</p></div>
 
       <div class="algos">
         <article class="algo a1">
-          <header><span class="num">算法一</span><div><h3>基于语义约束规则图的 Policy 缺陷检测</h3><p>部署前的静态检查：不执行真实业务，只检查 Policy 规则之间是否存在逻辑问题。</p></div></header>
+          <header><span class="num" data-i18n="alg1.num">算法一</span><div><h3 data-i18n="alg1.h3">基于语义约束规则图的 Policy 缺陷检测</h3><p data-i18n="alg1.p">部署前的静态检查：不执行真实业务，只检查 Policy 规则之间是否存在逻辑问题。</p></div></header>
           <div class="algo-chips">
-            <div><b>输入</b><span>Policy 规则 · 主体动作资源定义 · 业务控制要求</span></div>
-            <div><b>做法</b><span>统一规则对象 → 建规则图 → SMT 求解</span></div>
-            <div><b>产出</b><span>缺陷与规则编号 · 见证输入 · 回归用例</span></div>
+            <div><b data-i18n="alg1.in.b">输入</b><span data-i18n="alg1.in.s">Policy 规则 · 主体动作资源定义 · 业务控制要求</span></div>
+            <div><b data-i18n="alg1.do.b">做法</b><span data-i18n="alg1.do.s">统一规则对象 → 建规则图 → SMT 求解</span></div>
+            <div><b data-i18n="alg1.out.b">产出</b><span data-i18n="alg1.out.s">缺陷与规则编号 · 见证输入 · 回归用例</span></div>
           </div>
           <figure class="algo-fig">
             <svg width="100%" viewBox="0 0 680 392" xmlns="http://www.w3.org/2000/svg" role="img">
-              <title>算法一 基于语义约束规则图的 Policy 缺陷检测框架</title>
-              <desc>输入规则源码与业务控制要求，标准化为统一规则对象，构建规则图，用 SMT 求解冲突、不可达、覆盖缺口、冗余覆盖四类缺陷，输出缺陷位置与见证输入。</desc>
+              <title data-i18n="a1.svg.title">算法一 基于语义约束规则图的 Policy 缺陷检测框架</title>
+              <desc data-i18n="a1.svg.desc">输入规则源码与业务控制要求，标准化为统一规则对象，构建规则图，用 SMT 求解冲突、不可达、覆盖缺口、冗余覆盖四类缺陷，输出缺陷位置与见证输入。</desc>
               <defs><marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
-              <text x="20" y="44" font-size="13" font-weight="500" fill="#18202b">输入</text>
+              <text x="20" y="44" font-size="13" font-weight="500" fill="#18202b" data-i18n="a1.svg.in">输入</text>
               <rect x="132" y="20" width="166" height="48" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-              <text x="215" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central">规则源码</text>
-              <text x="215" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">Rego · Cedar · DSL</text>
+              <text x="215" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.src">规则源码</text>
+              <text x="215" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.srcSub">Rego · Cedar · DSL</text>
               <rect x="307" y="20" width="166" height="48" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-              <text x="390" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central">业务控制要求</text>
-              <text x="390" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">必须允许 · 拒绝 · 脱敏</text>
+              <text x="390" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.req">业务控制要求</text>
+              <text x="390" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.reqSub">必须允许 · 拒绝 · 脱敏</text>
               <rect x="482" y="20" width="166" height="48" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-              <text x="565" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central">业务词典</text>
-              <text x="565" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">主体 · 动作 · 资源 · 等级</text>
+              <text x="565" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.dict">业务词典</text>
+              <text x="565" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.dictSub">主体 · 动作 · 资源 · 等级</text>
               <line x1="390" y1="68" x2="390" y2="78" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr1)"/>
-              <text x="20" y="104" font-size="13" font-weight="500" fill="#18202b">① 标准化</text>
+              <text x="20" y="104" font-size="13" font-weight="500" fill="#18202b" data-i18n="a1.svg.s1">① 标准化</text>
               <rect x="132" y="80" width="516" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="390" y="98" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">统一规则对象   r = ⟨S, A, R, C, E, O, P, V⟩</text>
-              <text x="390" y="116" font-size="11.5" fill="#185FA5" text-anchor="middle" dominant-baseline="central">业务要求由大模型初转 + 人工审核，与规则同构化后一起求解</text>
+              <text x="390" y="98" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.norm">统一规则对象   r = ⟨S, A, R, C, E, O, P, V⟩</text>
+              <text x="390" y="116" font-size="11.5" fill="#185FA5" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.normSub">业务要求由大模型初转 + 人工审核，与规则同构化后一起求解</text>
               <line x1="390" y1="124" x2="390" y2="134" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr1)"/>
-              <text x="20" y="162" font-size="13" font-weight="500" fill="#18202b">② 规则图</text>
+              <text x="20" y="162" font-size="13" font-weight="500" fill="#18202b" data-i18n="a1.svg.s2">② 规则图</text>
               <rect x="132" y="136" width="96" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="180" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">包含</text>
+              <text x="180" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.g1">包含</text>
               <rect x="237" y="136" width="96" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="285" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">重叠</text>
+              <text x="285" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.g2">重叠</text>
               <rect x="342" y="136" width="96" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="390" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">覆盖</text>
+              <text x="390" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.g3">覆盖</text>
               <rect x="447" y="136" width="96" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="495" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">冲突</text>
+              <text x="495" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.g4">冲突</text>
               <rect x="552" y="136" width="96" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="600" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">依赖</text>
+              <text x="600" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.g5">依赖</text>
               <line x1="390" y1="180" x2="390" y2="190" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr1)"/>
-              <text x="20" y="222" font-size="13" font-weight="500" fill="#18202b">③ SMT 求解</text>
-              <text x="20" y="240" font-size="11.5" fill="#667085">工具：Z3</text>
+              <text x="20" y="222" font-size="13" font-weight="500" fill="#18202b" data-i18n="a1.svg.s3">③ SMT 求解</text>
+              <text x="20" y="240" font-size="11.5" fill="#667085" data-i18n="a1.svg.tool">工具：Z3</text>
               <rect x="132" y="192" width="123" height="52" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="193" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">冲突</text>
-              <text x="193" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">同一输入效果矛盾</text>
+              <text x="193" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d1">冲突</text>
+              <text x="193" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d1s">同一输入效果矛盾</text>
               <rect x="263" y="192" width="123" height="52" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="324" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">不可达</text>
-              <text x="324" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">条件矛盾或被覆盖</text>
+              <text x="324" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d2">不可达</text>
+              <text x="324" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d2s">条件矛盾或被覆盖</text>
               <rect x="394" y="192" width="123" height="52" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="455" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">覆盖缺口</text>
-              <text x="455" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">业务要求无规则覆盖</text>
+              <text x="455" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d3">覆盖缺口</text>
+              <text x="455" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d3s">业务要求无规则覆盖</text>
               <rect x="525" y="192" width="123" height="52" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="586" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">冗余覆盖</text>
-              <text x="586" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">不改变最终决策结果</text>
-              <text x="132" y="266" font-size="11.5" fill="#667085">有解 → 缺陷成立，解 x 可直接用作见证输入；无解 → 该关系不成立</text>
+              <text x="586" y="210" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d4">冗余覆盖</text>
+              <text x="586" y="229" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.d4s">不改变最终决策结果</text>
+              <text x="132" y="266" font-size="11.5" fill="#667085" data-i18n="a1.svg.solve">有解 → 缺陷成立，解 x 可直接用作见证输入；无解 → 该关系不成立</text>
               <line x1="390" y1="274" x2="390" y2="284" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr1)"/>
-              <text x="20" y="305" font-size="13" font-weight="500" fill="#18202b">④ 输出</text>
+              <text x="20" y="305" font-size="13" font-weight="500" fill="#18202b" data-i18n="a1.svg.s4">④ 输出</text>
               <rect x="132" y="284" width="166" height="42" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="215" y="305" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">缺陷类型与规则号</text>
+              <text x="215" y="305" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.o1">缺陷类型与规则号</text>
               <rect x="307" y="284" width="166" height="42" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="390" y="305" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">具体触发条件</text>
+              <text x="390" y="305" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.o2">具体触发条件</text>
               <rect x="482" y="284" width="166" height="42" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="565" y="305" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">见证输入样例</text>
+              <text x="565" y="305" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.o3">见证输入样例</text>
               <rect x="132" y="332" width="166" height="42" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="215" y="353" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">风险说明</text>
+              <text x="215" y="353" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.o4">风险说明</text>
               <rect x="307" y="332" width="166" height="42" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="390" y="353" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">修复建议</text>
+              <text x="390" y="353" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.o5">修复建议</text>
               <rect x="482" y="332" width="166" height="42" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="565" y="353" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">回归测试用例</text>
+              <text x="565" y="353" font-size="13" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a1.svg.o6">回归测试用例</text>
             </svg>
-            <figcaption>算法一：部署前静态检查链路</figcaption>
+            <figcaption data-i18n="alg1.cap">算法一：部署前静态检查链路</figcaption>
           </figure>
-          <div class="algo-q"><b>它解决的问题</b><span>Policy 本身有没有冲突、遗漏、重复或失效？</span></div>
+          <div class="algo-q"><b data-i18n="alg1.q.b">它解决的问题</b><span data-i18n="alg1.q.s">Policy 本身有没有冲突、遗漏、重复或失效？</span></div>
         </article>
 
         <article class="algo a2">
-          <header><span class="num">算法二</span><div><h3>基于因果执行轨迹重放的 Policy 反事实推演</h3><p>运行后的动态验证：基于一次真实发生过的 Agent 任务，保持大部分条件不变，只修改指定条件，重新执行并比较结果。</p></div></header>
+          <header><span class="num" data-i18n="alg2.num">算法二</span><div><h3 data-i18n="alg2.h3">基于因果执行轨迹重放的 Policy 反事实推演</h3><p data-i18n="alg2.p">运行后的动态验证：基于一次真实发生过的 Agent 任务，保持大部分条件不变，只修改指定条件，重新执行并比较结果。</p></div></header>
           <div class="algo-chips">
-            <div><b>输入</b><span>真实 Trace · 版本快照 · 待干预条件（Policy 版本／Agent 身份／数据等级／用途）</span></div>
-            <div><b>做法</b><span>还原检查点 → 双轨隔离重放 → 差分比较 → 最小致因搜索</span></div>
-            <div><b>产出</b><span>决策翻转与数据暴露差异 · 最小致因 · 回归用例</span></div>
+            <div><b data-i18n="alg2.in.b">输入</b><span data-i18n="alg2.in.s">真实 Trace · 版本快照 · 待干预条件（Policy 版本／Agent 身份／数据等级／用途）</span></div>
+            <div><b data-i18n="alg2.do.b">做法</b><span data-i18n="alg2.do.s">还原检查点 → 双轨隔离重放 → 差分比较 → 最小致因搜索</span></div>
+            <div><b data-i18n="alg2.out.b">产出</b><span data-i18n="alg2.out.s">决策翻转与数据暴露差异 · 最小致因 · 回归用例</span></div>
           </div>
           <figure class="algo-fig">
             <svg width="100%" viewBox="0 0 680 396" xmlns="http://www.w3.org/2000/svg" role="img">
-              <title>算法二 基于因果执行轨迹重放的 Policy 反事实推演框架</title>
-              <desc>输入真实 Trace、版本快照与待干预条件，还原执行过程并定位 Policy 检查点，在事实执行与反事实执行两条轨道上隔离重放，比较决策与数据暴露差异，再通过最小致因搜索输出可审计证据与回归用例。</desc>
+              <title data-i18n="a2.svg.title">算法二 基于因果执行轨迹重放的 Policy 反事实推演框架</title>
+              <desc data-i18n="a2.svg.desc">输入真实 Trace、版本快照与待干预条件，还原执行过程并定位 Policy 检查点，在事实执行与反事实执行两条轨道上隔离重放，比较决策与数据暴露差异，再通过最小致因搜索输出可审计证据与回归用例。</desc>
               <defs><marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
-              <text x="20" y="44" font-size="13" font-weight="500" fill="#18202b">输入</text>
+              <text x="20" y="44" font-size="13" font-weight="500" fill="#18202b" data-i18n="a2.svg.in">输入</text>
               <rect x="132" y="20" width="166" height="48" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-              <text x="215" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central">真实 Trace</text>
-              <text x="215" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">一次完整执行轨迹</text>
+              <text x="215" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.trace">真实 Trace</text>
+              <text x="215" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.traceSub">一次完整执行轨迹</text>
               <rect x="307" y="20" width="166" height="48" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-              <text x="390" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central">版本快照</text>
-              <text x="390" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">Policy · 数据 · 工具</text>
+              <text x="390" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.snap">版本快照</text>
+              <text x="390" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.snapSub">Policy · 数据 · 工具</text>
               <rect x="482" y="20" width="166" height="48" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-              <text x="565" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central">待干预条件</text>
-              <text x="565" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">只改这一个变量</text>
+              <text x="565" y="39" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.iv">待干预条件</text>
+              <text x="565" y="57" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.ivSub">只改这一个变量</text>
               <line x1="390" y1="68" x2="390" y2="78" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr2)"/>
-              <text x="20" y="102" font-size="13" font-weight="500" fill="#18202b">① 还原定位</text>
+              <text x="20" y="102" font-size="13" font-weight="500" fill="#18202b" data-i18n="a2.svg.s1">① 还原定位</text>
               <rect x="132" y="80" width="166" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="215" y="102" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">按 Trace 编号还原</text>
+              <text x="215" y="102" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.r1">按 Trace 编号还原</text>
               <rect x="307" y="80" width="166" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="390" y="102" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">定位判断前检查点</text>
+              <text x="390" y="102" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.r2">定位判断前检查点</text>
               <rect x="482" y="80" width="166" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="565" y="102" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">保存原始状态</text>
+              <text x="565" y="102" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.r3">保存原始状态</text>
               <line x1="390" y1="124" x2="390" y2="134" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr2)"/>
-              <text x="20" y="162" font-size="13" font-weight="500" fill="#18202b">② 双轨对照</text>
-              <text x="20" y="180" font-size="11.5" fill="#667085">核心差异</text>
+              <text x="20" y="162" font-size="13" font-weight="500" fill="#18202b" data-i18n="a2.svg.s2">② 双轨对照</text>
+              <text x="20" y="180" font-size="11.5" fill="#667085" data-i18n="a2.svg.s2s">核心差异</text>
               <rect x="132" y="136" width="252" height="68" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-              <text x="258" y="158" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central">事实执行 · 对照基线</text>
-              <text x="258" y="178" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">原条件重放同一条 Trace</text>
-              <text x="258" y="195" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central">回答“当时为什么这样判”</text>
+              <text x="258" y="158" font-size="13" font-weight="500" fill="#444441" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.f1">事实执行 · 对照基线</text>
+              <text x="258" y="178" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.f1s">原条件重放同一条 Trace</text>
+              <text x="258" y="195" font-size="11.5" fill="#5F5E5A" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.f1t">回答“当时为什么这样判”</text>
               <rect x="396" y="136" width="252" height="68" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-              <text x="522" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central">反事实执行 · 受控干预</text>
-              <text x="522" y="178" font-size="11.5" fill="#185FA5" text-anchor="middle" dominant-baseline="central">do(变量 = 新值) 后重放</text>
-              <text x="522" y="195" font-size="11.5" fill="#185FA5" text-anchor="middle" dominant-baseline="central">隔离沙箱 · 禁止真实写库发信</text>
+              <text x="522" y="158" font-size="13" font-weight="500" fill="#0C447C" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.c1">反事实执行 · 受控干预</text>
+              <text x="522" y="178" font-size="11.5" fill="#185FA5" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.c1s">do(变量 = 新值) 后重放</text>
+              <text x="522" y="195" font-size="11.5" fill="#185FA5" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.c1t">隔离沙箱 · 禁止真实写库发信</text>
               <line x1="390" y1="204" x2="390" y2="214" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr2)"/>
-              <text x="20" y="242" font-size="13" font-weight="500" fill="#18202b">③ 差分比较</text>
+              <text x="20" y="242" font-size="13" font-weight="500" fill="#18202b" data-i18n="a2.svg.s3">③ 差分比较</text>
               <rect x="132" y="216" width="166" height="52" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="215" y="236" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">决策结果</text>
-              <text x="215" y="254" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">允许 ↔ 拒绝是否翻转</text>
+              <text x="215" y="236" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.d1">决策结果</text>
+              <text x="215" y="254" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.d1s">允许 ↔ 拒绝是否翻转</text>
               <rect x="307" y="216" width="166" height="52" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="390" y="236" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">附加约束</text>
-              <text x="390" y="254" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">脱敏 · 审批是否变化</text>
+              <text x="390" y="236" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.d2">附加约束</text>
+              <text x="390" y="254" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.d2s">脱敏 · 审批是否变化</text>
               <rect x="482" y="216" width="166" height="52" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="565" y="236" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">数据暴露</text>
-              <text x="565" y="254" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central">哪些字段新增暴露</text>
+              <text x="565" y="236" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.d3">数据暴露</text>
+              <text x="565" y="254" font-size="11.5" fill="#A32D2D" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.d3s">哪些字段新增暴露</text>
               <line x1="390" y1="268" x2="390" y2="278" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr2)"/>
-              <text x="20" y="302" font-size="13" font-weight="500" fill="#18202b">④ 最小致因</text>
+              <text x="20" y="302" font-size="13" font-weight="500" fill="#18202b" data-i18n="a2.svg.s4">④ 最小致因</text>
               <rect x="132" y="280" width="516" height="44" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
-              <text x="390" y="302" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central">收缩变量取值，找出让结果翻转的最小条件组合，并定位到具体规则</text>
+              <text x="390" y="302" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.min">收缩变量取值，找出让结果翻转的最小条件组合，并定位到具体规则</text>
               <line x1="390" y1="324" x2="390" y2="334" stroke="#b4b2a9" stroke-width="1.5" marker-end="url(#arr2)"/>
-              <text x="20" y="358" font-size="13" font-weight="500" fill="#18202b">输出</text>
+              <text x="20" y="358" font-size="13" font-weight="500" fill="#18202b" data-i18n="a2.svg.out">输出</text>
               <rect x="132" y="336" width="81" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="172" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">决策翻转</text>
+              <text x="172" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.o1">决策翻转</text>
               <rect x="219" y="336" width="81" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="259" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">约束变化</text>
+              <text x="259" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.o2">约束变化</text>
               <rect x="306" y="336" width="81" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="346" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">暴露变化</text>
+              <text x="346" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.o3">暴露变化</text>
               <rect x="393" y="336" width="81" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="433" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">最小致因</text>
+              <text x="433" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.o4">最小致因</text>
               <rect x="480" y="336" width="81" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="520" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">证据对</text>
+              <text x="520" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.o5">证据对</text>
               <rect x="567" y="336" width="81" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-              <text x="607" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central">回归用例</text>
+              <text x="607" y="358" font-size="11.5" font-weight="500" fill="#085041" text-anchor="middle" dominant-baseline="central" data-i18n="a2.svg.o6">回归用例</text>
             </svg>
-            <figcaption>算法二：运行后反事实推演链路（② 双轨对照是它与算法一最大的结构差异）</figcaption>
+            <figcaption data-i18n="alg2.cap">算法二：运行后反事实推演链路（② 双轨对照是它与算法一最大的结构差异）</figcaption>
           </figure>
-          <div class="algo-q"><b>它解决的问题</b><span>如果换一个 Policy 版本、Agent 身份或数据条件，实际决策和数据流会不会改变？</span></div>
-          <p class="algo-foot"><b>这里的“因果”</b>指受控修改条件后重新执行，而不是仅凭历史日志相关性推断因果。</p>
+          <div class="algo-q"><b data-i18n="alg2.q.b">它解决的问题</b><span data-i18n="alg2.q.s">如果换一个 Policy 版本、Agent 身份或数据条件，实际决策和数据流会不会改变？</span></div>
+          <p class="algo-foot" data-i18n="alg2.foot"><b>这里的“因果”</b>指受控修改条件后重新执行，而不是仅凭历史日志相关性推断因果。</p>
         </article>
       </div>
 
       <div class="algo-link">
-        <div class="eyebrow">两个算法的关系</div>
+        <div class="eyebrow" data-i18n="link.eyebrow">两个算法的关系</div>
         <div class="chain">
-          <span>规则图检测</span><i>→</i><span>发现疑似 Policy 缺陷</span><i>→</i><span>生成触发样例</span><i>→</i><span>查找或构造执行 Trace</span><i>→</i><span>反事实重放</span><i>→</i><span>验证决策和数据暴露影响</span><i>→</i><span>生成修复建议和回归测试</span>
+          <span data-i18n="link.c1">规则图检测</span><i>→</i><span data-i18n="link.c2">发现疑似 Policy 缺陷</span><i>→</i><span data-i18n="link.c3">生成触发样例</span><i>→</i><span data-i18n="link.c4">查找或构造执行 Trace</span><i>→</i><span data-i18n="link.c5">反事实重放</span><i>→</i><span data-i18n="link.c6">验证决策和数据暴露影响</span><i>→</i><span data-i18n="link.c7">生成修复建议和回归测试</span>
         </div>
-        <p>算法一负责“发现规则可能有问题”，算法二负责“验证这个问题在真实执行中会造成什么影响”。Phase I 建议重点实现：算法一覆盖冲突、冗余、不可达、覆盖缺口；算法二覆盖 Policy 版本变化、Agent 身份变化、数据等级变化和用途变化；两者共同输出可复现证据和自动化回归测试。</p>
+        <p data-i18n="link.p">算法一负责“发现规则可能有问题”，算法二负责“验证这个问题在真实执行中会造成什么影响”。Phase I 建议重点实现：算法一覆盖冲突、冗余、不可达、覆盖缺口；算法二覆盖 Policy 版本变化、Agent 身份变化、数据等级变化和用途变化；两者共同输出可复现证据和自动化回归测试。</p>
       </div>
 
       <div class="matrix-wrap">
         <div class="matrix-head">
-          <div><div class="eyebrow">Score matrix × algorithm coverage</div><h3>Policy Engine 评分矩阵与算法补强对应</h3><p class="matrix-sub">分数越高越好（5 分制）。带框的格子是四个引擎最薄弱的位置，也正是两套算法要补的位置。</p></div>
-          <div class="legend"><span class="lg s5">5 分</span><span class="lg s4">4 分</span><span class="lg s3">3 分</span><span class="lg s2">2 分</span><span class="lg s1">1 分</span><span class="lg fill">实线框 · 算法补强</span></div>
+          <div><div class="eyebrow">Score matrix × algorithm coverage</div><h3 data-i18n="mx.h3">Policy Engine 评分矩阵与算法补强对应</h3><p class="matrix-sub" data-i18n="mx.sub">分数越高越好（5 分制）。带框的格子是四个引擎最薄弱的位置，也正是两套算法要补的位置。</p></div>
+          <div class="legend"><span class="lg s5" data-i18n="mx.lg5">5 分</span><span class="lg s4" data-i18n="mx.lg4">4 分</span><span class="lg s3" data-i18n="mx.lg3">3 分</span><span class="lg s2" data-i18n="mx.lg2">2 分</span><span class="lg s1" data-i18n="mx.lg1">1 分</span><span class="lg fill" data-i18n="mx.lgfix">实线框 · 算法补强</span></div>
         </div>
         <div class="table-scroll">
         <table class="matrix">
-          <thead><tr><th>评分项</th><th>OPA</th><th>Cedar</th><th>AGT</th><th>Guardrails</th><th>算法补强对应</th></tr></thead>
+          <thead><tr><th data-i18n="mx.th.crit">评分项</th><th>OPA</th><th>Cedar</th><th>AGT</th><th>Guardrails</th><th data-i18n="mx.th.fix">算法补强对应</th></tr></thead>
           <tbody>
-            <tr><th>1.1 加载 Policy 及相关数据</th><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="fix">四家均原生支持</td></tr>
-            <tr><th>1.2 Policy 版本、所有权与状态管理</th><td class="s3">3</td><td class="s3">3</td><td class="s3">3</td><td class="s2">2</td><td class="fix">由规范包定义（D03）</td></tr>
-            <tr><th>2.1 接收结构化上下文</th><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="fix">四家均原生支持</td></tr>
-            <tr><th>2.2 支持包含多种决策结果</th><td class="s5">5</td><td class="s2">2</td><td class="s4">4</td><td class="s3">3</td><td class="fix">OPA 可返回任意类型</td></tr>
-            <tr><th>2.3 决策默认安全、异常时拒绝或转人工</th><td class="s3 hl2">3</td><td class="s3">3</td><td class="s5">5</td><td class="s3">3</td><td class="fix">算法二 · fail-closed 纳入测试</td></tr>
-            <tr><th>3.1 部署前的编译和正确性检查</th><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="fix">复用原生，不重复造轮子</td></tr>
-            <tr><th>3.2 冲突检测、缺口检测、规则不可达检测</th><td class="s2 hl1">2</td><td class="s4 hl1">4</td><td class="s2 hl1">2</td><td class="s1 hl1">1</td><td class="fix star">★ 算法一（缺口检测四家全空白）</td></tr>
-            <tr><th>4.1 提供自定义测试接口和函数</th><td class="s5">5</td><td class="s2">2</td><td class="s5">5</td><td class="s5">5</td><td class="fix">原生支持足够</td></tr>
-            <tr><th>4.2 支持回归、回放测试</th><td class="s3 hl2">3</td><td class="s3 hl2">3</td><td class="s3 hl2">3</td><td class="s3 hl2">3</td><td class="fix star">★ 算法二（四家均为手工比对）</td></tr>
-            <tr><th>5.1 记录每次查询的中间信息</th><td class="s5">5</td><td class="s2">2</td><td class="s5">5</td><td class="s5">5</td><td class="fix">OPA／AGT 原生支持</td></tr>
-            <tr><th>5.2 支持指标统计</th><td class="s2 hl2">2</td><td class="s2 hl2">2</td><td class="s2 hl2">2</td><td class="s1 hl2">1</td><td class="fix star">★ 算法二（差分结果即指标来源）</td></tr>
-            <tr><th>开发难度与稳定性</th><td class="s5">5</td><td class="s4">4</td><td class="s2">2</td><td class="s3">3</td><td class="fix">—</td></tr>
+            <tr><th data-i18n="mx.r1">1.1 加载 Policy 及相关数据</th><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="fix" data-i18n="mx.r1f">四家均原生支持</td></tr>
+            <tr><th data-i18n="mx.r2">1.2 Policy 版本、所有权与状态管理</th><td class="s3">3</td><td class="s3">3</td><td class="s3">3</td><td class="s2">2</td><td class="fix" data-i18n="mx.r2f">由规范包定义（D03）</td></tr>
+            <tr><th data-i18n="mx.r3">2.1 接收结构化上下文</th><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="fix" data-i18n="mx.r3f">四家均原生支持</td></tr>
+            <tr><th data-i18n="mx.r4">2.2 支持包含多种决策结果</th><td class="s5">5</td><td class="s2">2</td><td class="s4">4</td><td class="s3">3</td><td class="fix" data-i18n="mx.r4f">OPA 可返回任意类型</td></tr>
+            <tr><th data-i18n="mx.r5">2.3 决策默认安全、异常时拒绝或转人工</th><td class="s3 hl2">3</td><td class="s3">3</td><td class="s5">5</td><td class="s3">3</td><td class="fix" data-i18n="mx.r5f">算法二 · fail-closed 纳入测试</td></tr>
+            <tr><th data-i18n="mx.r6">3.1 部署前的编译和正确性检查</th><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="s5">5</td><td class="fix" data-i18n="mx.r6f">复用原生，不重复造轮子</td></tr>
+            <tr><th data-i18n="mx.r7">3.2 冲突检测、缺口检测、规则不可达检测</th><td class="s2 hl1">2</td><td class="s4 hl1">4</td><td class="s2 hl1">2</td><td class="s1 hl1">1</td><td class="fix star" data-i18n="mx.r7f">★ 算法一（缺口检测四家全空白）</td></tr>
+            <tr><th data-i18n="mx.r8">4.1 提供自定义测试接口和函数</th><td class="s5">5</td><td class="s2">2</td><td class="s5">5</td><td class="s5">5</td><td class="fix" data-i18n="mx.r8f">原生支持足够</td></tr>
+            <tr><th data-i18n="mx.r9">4.2 支持回归、回放测试</th><td class="s3 hl2">3</td><td class="s3 hl2">3</td><td class="s3 hl2">3</td><td class="s3 hl2">3</td><td class="fix star" data-i18n="mx.r9f">★ 算法二（四家均为手工比对）</td></tr>
+            <tr><th data-i18n="mx.r10">5.1 记录每次查询的中间信息</th><td class="s5">5</td><td class="s2">2</td><td class="s5">5</td><td class="s5">5</td><td class="fix" data-i18n="mx.r10f">OPA／AGT 原生支持</td></tr>
+            <tr><th data-i18n="mx.r11">5.2 支持指标统计</th><td class="s2 hl2">2</td><td class="s2 hl2">2</td><td class="s2 hl2">2</td><td class="s1 hl2">1</td><td class="fix star" data-i18n="mx.r11f">★ 算法二（差分结果即指标来源）</td></tr>
+            <tr><th data-i18n="mx.r12">开发难度与稳定性</th><td class="s5">5</td><td class="s4">4</td><td class="s2">2</td><td class="s3">3</td><td class="fix">—</td></tr>
           </tbody>
-          <tfoot><tr><th>总分（满分 60）</th><td class="tot best">48</td><td class="tot">40</td><td class="tot">46</td><td class="tot">41</td><td class="fix">—</td></tr></tfoot>
+          <tfoot><tr><th data-i18n="mx.tf">总分（满分 60）</th><td class="tot best">48</td><td class="tot">40</td><td class="tot">46</td><td class="tot">41</td><td class="fix">—</td></tr></tfoot>
         </table>
         </div>
       </div>
 
       <div class="matrix-note">
-        <div class="mn"><b>1 · 分数最低的三格，就是两套算法的位置</b><p><b>3.2</b>：OPA 仅 2 分（只原生支持规则冲突检测），Cedar 4 分但明确写了<b>不支持缺口检测</b>——「覆盖缺口」是四家共同的空白。 <b>4.2</b>：四家一律 3 分，实现方式都是手工对比历史用例。 <b>5.2</b>：最高只有 2 分，除 latency 外的 FP/FN、覆盖率、冲突率全都要自建。算法一填 3.2，算法二同时填 4.2 与 5.2。</p></div>
-        <div class="mn"><b>2 · 落地前提，OPA 已经满足</b><p>算法一需要可解析的规则源码：OPA 在 3.1 上原生支持 check/build 静态校验（满分），且 Rego 是声明式语言、可解析为 AST。算法二需要可重放的 Trace 与 Policy 版本快照：OPA 在 5.1 上原生支持决策日志且可自行补充中间信息，Bundle 机制天然带版本与签名。另外 2.2 OPA 满分，与决策契约的 allow / deny / allow_with_constraints / escalate 四种 effect 契合。</p></div>
-        <div class="mn warn"><b>3 · 三个必须正视的边界</b><p><b>缺口检测缺“业务意图”，是最大前置依赖。</b>四家都不支持缺口检测，原因不是技术做不到，而是没有“应有控制但未被规则覆盖的域”就无法定义缺口——算法一必须先拿到汇丰的控制矩阵或正负样例，否则“注入缺陷检出率 ≥90%”无法计算。<b>端到端因果归因不要写进 Phase I 验收。</b>只覆盖“决策层重放 + 工具 Mock”的 2–3 个代表性流程。<b>指标口径要先固化。</b>5.2 四家都低于 2 分、没有任何现成实现，口径不定，算法二产出的差分就变不成可验收指标。另外 2.3 OPA 仅 3 分（没有运行异常下的兜底代码），算法二做 fail-closed 验证时要把它纳入测试范围。</p></div>
+        <div class="mn"><b data-i18n="mx.n1.b">1 · 分数最低的三格，就是两套算法的位置</b><p data-i18n="mx.n1.p"><b>3.2</b>：OPA 仅 2 分（只原生支持规则冲突检测），Cedar 4 分但明确写了<b>不支持缺口检测</b>——“覆盖缺口”是四家共同的空白。 <b>4.2</b>：四家一律 3 分，实现方式都是手工对比历史用例。 <b>5.2</b>：最高只有 2 分，除 latency 外的 FP/FN、覆盖率、冲突率全都要自建。算法一填 3.2，算法二同时填 4.2 与 5.2。</p></div>
+        <div class="mn"><b data-i18n="mx.n2.b">2 · 落地前提，OPA 已经满足</b><p data-i18n="mx.n2.p">算法一需要可解析的规则源码：OPA 在 3.1 上原生支持 check/build 静态校验（满分），且 Rego 是声明式语言、可解析为 AST。算法二需要可重放的 Trace 与 Policy 版本快照：OPA 在 5.1 上原生支持决策日志且可自行补充中间信息，Bundle 机制天然带版本与签名。另外 2.2 OPA 满分，与决策契约的 allow / deny / allow_with_constraints / escalate 四种 effect 契合。</p></div>
+        <div class="mn warn"><b data-i18n="mx.n3.b">3 · 三个必须正视的边界</b><p data-i18n="mx.n3.p"><b>缺口检测缺“业务意图”，是最大前置依赖。</b>四家都不支持缺口检测，原因不是技术做不到，而是没有“应有控制但未被规则覆盖的域”就无法定义缺口——算法一必须先拿到汇丰的控制矩阵或正负样例，否则“注入缺陷检出率 ≥90%”无法计算。<b>端到端因果归因不要写进 Phase I 验收。</b>只覆盖“决策层重放 + 工具 Mock”的 2–3 个代表性流程。<b>指标口径要先固化。</b>5.2 四家都低于 2 分、没有任何现成实现，口径不定，算法二产出的差分就变不成可验收指标。另外 2.3 OPA 仅 3 分（没有运行异常下的兜底代码），算法二做 fail-closed 验证时要把它纳入测试范围。</p></div>
       </div>
     </div></section>
 
     <section id="plan"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">12-month plan</div><h2>Phase 1：按月推进，两月一次Gate</h2></div><p>点击任意月份查看该月的SCUT研究重点、汇丰配合事项与当月的可验收交付。每两个月形成一个明确Gate，避免研究与工程长期脱节。</p></div>
+      <div class="section-head"><div><div class="eyebrow">12-month plan</div><h2 data-i18n="plan.h2">Phase 1：按月推进，两月一次Gate</h2></div><p data-i18n="plan.p">点击任意月份查看该月的SCUT研究重点、汇丰配合事项与当月的可验收交付。每两个月形成一个明确Gate，避免研究与工程长期脱节。</p></div>
       <div class="plan-stages">
-        <div class="stage-chip"><b>M1–2</b><span>看清问题</span></div>
-        <div class="stage-chip"><b>M3–4</b><span>统一语言</span></div>
-        <div class="stage-chip"><b>M5–6</b><span>上线前能测试</span></div>
-        <div class="stage-chip"><b>M7–8</b><span>安全地试</span></div>
-        <div class="stage-chip"><b>M9–10</b><span>量化好坏</span></div>
-        <div class="stage-chip"><b>M11–12</b><span>验证与移交</span></div>
+        <div class="stage-chip"><b data-i18n="plan.st1.b">M1–2</b><span data-i18n="plan.st1.s">看清问题</span></div>
+        <div class="stage-chip"><b data-i18n="plan.st2.b">M3–4</b><span data-i18n="plan.st2.s">统一语言</span></div>
+        <div class="stage-chip"><b data-i18n="plan.st3.b">M5–6</b><span data-i18n="plan.st3.s">上线前能测试</span></div>
+        <div class="stage-chip"><b data-i18n="plan.st4.b">M7–8</b><span data-i18n="plan.st4.s">安全地试</span></div>
+        <div class="stage-chip"><b data-i18n="plan.st5.b">M9–10</b><span data-i18n="plan.st5.s">量化好坏</span></div>
+        <div class="stage-chip"><b data-i18n="plan.st6.b">M11–12</b><span data-i18n="plan.st6.s">验证与移交</span></div>
       </div>
       <div class="plan-months" id="planMonths"></div>
       <div class="phase-detail" id="phaseDetail"></div>
     </div></section>
 
     <section id="roles"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Clear ownership</div><h2>研究任务与产品建设不能混在一起</h2></div><p>SCUT回答“应该怎样设计、如何验证、怎样衡量”；汇丰回答“如何接入现有Agent Hub、如何安全上线和稳定运行”。</p></div>
+      <div class="section-head"><div><div class="eyebrow">Clear ownership</div><h2 data-i18n="roles.h2">研究任务与产品建设不能混在一起</h2></div><p data-i18n="roles.p">SCUT回答“应该怎样设计、如何验证、怎样衡量”；汇丰回答“如何接入现有Agent Hub、如何安全上线和稳定运行”。</p></div>
       <div class="roles">
-        <article class="role scut"><small>SCUT OWNS RESEARCH & METHODOLOGY</small><h3>SCUT负责</h3><ul><li>Policy生命周期、元数据、Context和证据模型</li><li>冲突、缺口、不可达与回归测试方法</li><li>两个核心算法的设计、形式化与可行性验证</li><li>Benchmark场景、预期结果与指标口径</li><li>Replay、Simulation和Evaluation方法</li><li>技术报告、论文与专利技术交底书</li></ul><p>不承担：Agent Hub生产系统实现、集成与运维。</p></article>
-        <article class="role hsbc"><small>HSBC OWNS PRODUCT & PRODUCTION</small><h3>汇丰负责</h3><ul><li>提供Agent Hub设计和代表性用例</li><li>提供脱敏或合成的Policy、Trace与Decision Log</li><li>实现Policy创建、审批、发布和附着功能</li><li>接入OPA或其他Policy Engine及业务系统</li><li>建设正式测试、Replay、Dashboard与审计功能</li><li>负责安全、性能、合规、上线和持续运营</li></ul><p>双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。</p></article>
+        <article class="role scut"><small>SCUT OWNS RESEARCH &amp; METHODOLOGY</small><h3 data-i18n="roles.scut.h3">SCUT负责</h3><ul><li data-i18n="roles.scut.li1">Policy生命周期、元数据、Context和证据模型</li><li data-i18n="roles.scut.li2">冲突、缺口、不可达与回归测试方法</li><li data-i18n="roles.scut.li3">两个核心算法的设计、形式化与可行性验证</li><li data-i18n="roles.scut.li4">Benchmark场景、预期结果与指标口径</li><li data-i18n="roles.scut.li5">Replay、Simulation和Evaluation方法</li><li data-i18n="roles.scut.li6">技术报告、论文与专利技术交底书</li></ul><p data-i18n="roles.scut.p">不承担：Agent Hub生产系统实现、集成与运维。</p></article>
+        <article class="role hsbc"><small>HSBC OWNS PRODUCT &amp; PRODUCTION</small><h3 data-i18n="roles.hsbc.h3">汇丰负责</h3><ul><li data-i18n="roles.hsbc.li1">提供Agent Hub设计和代表性用例</li><li data-i18n="roles.hsbc.li2">提供脱敏或合成的Policy、Trace与Decision Log</li><li data-i18n="roles.hsbc.li3">实现Policy创建、审批、发布和附着功能</li><li data-i18n="roles.hsbc.li4">接入OPA或其他Policy Engine及业务系统</li><li data-i18n="roles.hsbc.li5">建设正式测试、Replay、Dashboard与审计功能</li><li data-i18n="roles.hsbc.li6">负责安全、性能、合规、上线和持续运营</li></ul><p data-i18n="roles.hsbc.p">双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。</p></article>
       </div>
     </div></section>
 
     <section id="deliverables"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">What SCUT delivers</div><h2>不是一份报告，而是六个可验收的交付包</h2></div><p>每个交付包都停留在“方法与可验证产物”这一层：既有设计说明，也有能在代表性业务场景中评价的样例与结论。</p></div>
+      <div class="section-head"><div><div class="eyebrow">What SCUT delivers</div><h2 data-i18n="del.h2">不是一份报告，而是六个可验收的交付包</h2></div><p data-i18n="del.p">每个交付包都停留在“方法与可验证产物”这一层：既有设计说明，也有能在代表性业务场景中评价的样例与结论。</p></div>
       <div class="deliverables">
-        <article><b>◈</b><h3>总体设计包</h3><p>需求基线、差距分析、目标架构、路线图与任务清单。</p></article>
-        <article><b>◇</b><h3>引擎选型包</h3><p>四引擎逐项评分、层级定位、选型结论与集成前提。</p></article>
-        <article><b>✦</b><h3>算法包</h3><p>缺陷检测与反事实推演的算法设计、形式化表达与可行性论证。</p></article>
-        <article><b>⌁</b><h3>验证与基准包</h3><p>冲突／缺口／回归测试方法、Benchmark场景、预期结果与Replay方法。</p></article>
-        <article><b>◎</b><h3>证据与评价包</h3><p>指标口径、基线结果与治理证据结论。</p></article>
-        <article><b>↗</b><h3>技术转移包</h3><p>最终报告、培训材料、论文初稿、专利技术交底书与Phase 2准入评估。</p></article>
+        <article><b>◈</b><h3 data-i18n="del.i1.h">总体设计包</h3><p data-i18n="del.i1.p">需求基线、差距分析、目标架构、路线图与任务清单。</p></article>
+        <article><b>◇</b><h3 data-i18n="del.i2.h">引擎选型包</h3><p data-i18n="del.i2.p">四引擎逐项评分、层级定位、选型结论与集成前提。</p></article>
+        <article><b>✦</b><h3 data-i18n="del.i3.h">算法包</h3><p data-i18n="del.i3.p">缺陷检测与反事实推演的算法设计、形式化表达与可行性论证。</p></article>
+        <article><b>⌁</b><h3 data-i18n="del.i4.h">验证与基准包</h3><p data-i18n="del.i4.p">冲突／缺口／回归测试方法、Benchmark场景、预期结果与Replay方法。</p></article>
+        <article><b>◎</b><h3 data-i18n="del.i5.h">证据与评价包</h3><p data-i18n="del.i5.p">指标口径、基线结果与治理证据结论。</p></article>
+        <article><b>↗</b><h3 data-i18n="del.i6.h">技术转移包</h3><p data-i18n="del.i6.p">最终报告、培训材料、论文初稿、专利技术交底书与Phase 2准入评估。</p></article>
       </div>
     </div></section>
 
     <section><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Plain-language glossary</div><h2>本方案中的关键词</h2></div><p>保留难以准确翻译的英文，同时用一句话说明作用。</p></div>
-      <div class="glossary"><article><b>Policy</b><span>规定Agent在什么条件下可以做什么、不能做什么，以及何时需要人工确认。</span></article><article><b>Policy Engine</b><span>根据Policy和Context作出允许、拒绝、复核或降级判断。</span></article><article><b>Context</b><span>用户角色、Agent、工具、数据等级和用途等现场信息。</span></article><article><b>Decision Log / Trace</b><span>记录为何这样判断以及完整调用过程，用于审计和复现。</span></article><article><b>Replay / Simulation</b><span>重放历史或模拟新场景，不影响真实业务地测试Policy。</span></article><article><b>Benchmark</b><span>固定的标准场景和预期答案，用来客观比较Policy版本。</span></article><article><b>AST</b><span>解析规则时使用的内部结构，不是另一种Policy语言。</span></article><article><b>SAT / SMT</b><span>判断一组逻辑条件能否同时成立的计算方法。</span></article><article><b>Z3</b><span>可以直接执行SAT/SMT计算、并返回解集的现成工具，用于求解是否冲突、是否覆盖。</span></article></div>
+      <div class="section-head"><div><div class="eyebrow">Plain-language glossary</div><h2 data-i18n="gl.h2">本方案中的关键词</h2></div><p data-i18n="gl.p">保留难以准确翻译的英文，同时用一句话说明作用。</p></div>
+      <div class="glossary"><article><b>Policy</b><span data-i18n="gl.i1.s">规定Agent在什么条件下可以做什么、不能做什么，以及何时需要人工确认。</span></article><article><b>Policy Engine</b><span data-i18n="gl.i2.s">根据Policy和Context作出允许、拒绝、复核或降级判断。</span></article><article><b>Context</b><span data-i18n="gl.i3.s">用户角色、Agent、工具、数据等级和用途等现场信息。</span></article><article><b>Decision Log / Trace</b><span data-i18n="gl.i4.s">记录为何这样判断以及完整调用过程，用于审计和复现。</span></article><article><b>Replay / Simulation</b><span data-i18n="gl.i5.s">重放历史或模拟新场景，不影响真实业务地测试Policy。</span></article><article><b>Benchmark</b><span data-i18n="gl.i6.s">固定的标准场景和预期答案，用来客观比较Policy版本。</span></article><article><b>AST</b><span data-i18n="gl.i7.s">解析规则时使用的内部结构，不是另一种Policy语言。</span></article><article><b>SAT / SMT</b><span data-i18n="gl.i8.s">判断一组逻辑条件能否同时成立的计算方法。</span></article><article><b>Z3</b><span data-i18n="gl.i9.s">可以直接执行SAT/SMT计算、并返回解集的现成工具，用于求解是否冲突、是否覆盖。</span></article></div>
     </div></section>
 
-    <section><div class="wrap"><div class="cta"><div><h2>Phase 1的真正终点</h2><p>汇丰不只是“装上一个Policy Engine”，而是拥有能持续管理、验证、度量和审计Agent行为的治理能力；SCUT的方法与算法成果也能被工程团队直接接管。</p></div><a class="primary" href="#plan">从M1开始</a></div></div></section>
+    <section><div class="wrap"><div class="cta"><div><h2 data-i18n="cta.h2">Phase 1的真正终点</h2><p data-i18n="cta.p">汇丰不只是“装上一个Policy Engine”，而是拥有能持续管理、验证、度量和审计Agent行为的治理能力；SCUT的方法与算法成果也能被工程团队直接接管。</p></div><a class="primary" href="#plan" data-i18n="cta.link">从M1开始</a></div></div></section>
   </main>
-  <footer><div class="wrap"><span>HSBC × SCUT · Agent Policy Governance Research Proposal</span><span>Interactive concept demo · No confidential data</span></div></footer>
+  <footer><div class="wrap"><span data-i18n="footer.a">HSBC × SCUT · Agent Policy Governance Research Proposal</span><span data-i18n="footer.b">Interactive concept demo · No confidential data</span></div></footer>
+  <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
