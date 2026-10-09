@@ -1,4 +1,4 @@
-/* HSBC x SCUT · bilingual dictionary (zh / en)
+/* AgentHub x SCUT · bilingual dictionary (zh / en)
    Every value is an HTML string; the runtime decides between textContent
    (SVG) and innerHTML (HTML elements). */
 window.I18N = (function () {
@@ -16,22 +16,22 @@ window.I18N = (function () {
   S['nav.roles']      = { zh: `双方分工`, en: `Division of labor` };
   S['nav.deliver']    = { zh: `交付什么`, en: `Deliverables` };
   S['nav.pill']       = { zh: `Phase 1 · 12个月`, en: `Phase 1 · 12 months` };
-  S['page.title']     = { zh: `HSBC × SCUT · Policy Governance Phase 1`, en: `HSBC × SCUT · Policy Governance Phase 1` };
-  S['page.desc']      = { zh: `HSBC × SCUT Agent Hub Policy Governance Phase 1`, en: `HSBC × SCUT Agent Hub Policy Governance Phase 1` };
+  S['page.title']     = { zh: `AgentHub × SCUT · Policy Governance Phase 1`, en: `AgentHub × SCUT · Policy Governance Phase 1` };
+  S['page.desc']      = { zh: `AgentHub × SCUT · Policy Governance Phase 1`, en: `AgentHub × SCUT · Policy Governance Phase 1` };
 
   /* ---------------- hero ---------------- */
   S['hero.h1']   = { zh: `不是再造一个引擎，<br>而是让每次 Agent 决策都<br><em>管得住、测得准、说得清</em>`,
                      en: `Not another engine,<br>but making every Agent decision<br><em>governable, testable and explainable</em>` };
-  S['hero.lead'] = { zh: `汇丰已有 Agent Hub 和确定性 Policy 执行能力。Phase 1要补齐的是治理基础：Policy可管理、上线前可测试、运行中可度量、事后可审计。`,
-                     en: `HSBC already has an Agent Hub and deterministic policy enforcement. What Phase 1 adds is the governance foundation: policies that can be managed, tested before release, measured in operation and audited afterwards.` };
+  S['hero.lead'] = { zh: `合作方已有 Agent Hub 和确定性 Policy 执行能力。Phase 1要补齐的是治理基础：Policy可管理、上线前可测试、运行中可度量、事后可审计。`,
+                     en: `The bank already has an Agent Hub and deterministic policy enforcement. What Phase 1 adds is the governance foundation: policies that can be managed, tested before release, measured in operation and audited afterwards.` };
   S['hero.cta1'] = { zh: `看懂整套方案`, en: `See the full approach` };
   S['hero.cta2'] = { zh: `查看12个月计划`, en: `View the 12-month plan` };
   S['hero.oneline.label'] = { zh: `一句话分工`, en: `In one line` };
-  S['hero.oneline.body']  = { zh: `<strong>SCUT</strong>研究方法和算法、定义规范与评价口径；<strong>汇丰</strong>把这些成果接入现有Agent Hub，建设生产功能并负责上线运行。`,
-                              en: `<strong>SCUT</strong> researches the methods and algorithms and defines the specifications and evaluation criteria; <strong>HSBC</strong> integrates these results into the existing Agent Hub, builds production features and owns deployment and operations.` };
+  S['hero.oneline.body']  = { zh: `<strong>SCUT</strong>研究方法和算法、定义规范与评价口径；<strong>合作方</strong>把这些成果接入现有Agent Hub，建设生产功能并负责上线运行。`,
+                              en: `<strong>SCUT</strong> researches the methods and algorithms and defines the specifications and evaluation criteria; <strong>The bank</strong> integrates these results into the existing Agent Hub, builds production features and owns deployment and operations.` };
 
   /* ---------------- why ---------------- */
-  S['why.h2'] = { zh: `汇丰现在缺的，不是“会不会拦截”`, en: `What HSBC lacks is not the ability to block` };
+  S['why.h2'] = { zh: `合作方现在缺的，不是“会不会拦截”`, en: `What the bank lacks is not the ability to block` };
   S['why.p']  = { zh: `OPA、Cedar等工具擅长根据明确规则给出允许或拒绝。更困难的是：规则怎么管理、是否正确、升级会不会出问题、出了问题能否还原。`,
                   en: `Tools like OPA and Cedar are good at returning allow or deny from explicit rules. The harder questions are how rules are managed, whether they are correct, whether upgrades cause problems, and whether issues can be reconstructed.` };
   S['why.p1.h'] = { zh: `Policy越来越多，谁负责？`, en: `As policies multiply, who owns them?` };
@@ -352,13 +352,13 @@ window.I18N = (function () {
   S['mx.n2.p'] = { zh: `算法一需要可解析的规则源码：OPA 在 3.1 上原生支持 check/build 静态校验（满分），且 Rego 是声明式语言、可解析为 AST。算法二需要可重放的 Trace 与 Policy 版本快照：OPA 在 5.1 上原生支持决策日志且可自行补充中间信息，Bundle 机制天然带版本与签名。另外 2.2 OPA 满分，与决策契约的 allow / deny / allow_with_constraints / escalate 四种 effect 契合。`,
                     en: `Algorithm 1 needs parseable rule source: OPA natively supports check/build static validation on 3.1 (full marks), and Rego is a declarative language that can be parsed into an AST. Algorithm 2 needs replayable Traces and policy version snapshots: OPA natively supports decision logs on 5.1 and can be extended with intermediate info, and its Bundle mechanism naturally carries versions and signatures. Also, OPA scores full marks on 2.2, matching the decision contract's four effects: allow / deny / allow_with_constraints / escalate.` };
   S['mx.n3.b'] = { zh: `3 · 三个必须正视的边界`, en: `3 · Three boundaries to face squarely` };
-  S['mx.n3.p'] = { zh: `<b>缺口检测缺“业务意图”，是最大前置依赖。</b>四家都不支持缺口检测，原因不是技术做不到，而是没有“应有控制但未被规则覆盖的域”就无法定义缺口——算法一必须先拿到汇丰的控制矩阵或正负样例，否则“注入缺陷检出率 ≥90%”无法计算。<b>端到端因果归因不要写进 Phase I 验收。</b>只覆盖“决策层重放 + 工具 Mock”的 2–3 个代表性流程。<b>指标口径要先固化。</b>5.2 四家都低于 2 分、没有任何现成实现，口径不定，算法二产出的差分就变不成可验收指标。另外 2.3 OPA 仅 3 分（没有运行异常下的兜底代码），算法二做 fail-closed 验证时要把它纳入测试范围。`,
-                    en: `<b>Gap detection lacks “business intent” — the single biggest prerequisite.</b> None of the four supports gap detection, not because it is technically infeasible, but because without a definition of “domains that should be controlled but are not covered by rules”, no gap can be defined. Algorithm 1 must first obtain HSBC's control matrix or positive/negative samples, otherwise “injected-defect detection rate ≥ 90%” cannot be computed. <b>Do not put end-to-end causal attribution into Phase I acceptance.</b> Cover only 2–3 representative flows of “decision-layer replay + mocked tools”. <b>Fix the metric definitions first.</b> All four score below 2 on 5.2 with no off-the-shelf implementation; if the definitions are unsettled, the diffs produced by Algorithm 2 cannot become acceptance metrics. Also, OPA scores only 3 on 2.3 (no fallback code for runtime exceptions), so Algorithm 2 should include fail-closed verification in its test scope.` };
+  S['mx.n3.p'] = { zh: `<b>缺口检测缺“业务意图”，是最大前置依赖。</b>四家都不支持缺口检测，原因不是技术做不到，而是没有“应有控制但未被规则覆盖的域”就无法定义缺口——算法一必须先拿到合作方的控制矩阵或正负样例，否则“注入缺陷检出率 ≥90%”无法计算。<b>端到端因果归因不要写进 Phase I 验收。</b>只覆盖“决策层重放 + 工具 Mock”的 2–3 个代表性流程。<b>指标口径要先固化。</b>5.2 四家都低于 2 分、没有任何现成实现，口径不定，算法二产出的差分就变不成可验收指标。另外 2.3 OPA 仅 3 分（没有运行异常下的兜底代码），算法二做 fail-closed 验证时要把它纳入测试范围。`,
+                    en: `<b>Gap detection lacks “business intent” — the single biggest prerequisite.</b> None of the four supports gap detection, not because it is technically infeasible, but because without a definition of “domains that should be controlled but are not covered by rules”, no gap can be defined. Algorithm 1 must first obtain the bank's control matrix or positive/negative samples, otherwise “injected-defect detection rate ≥ 90%” cannot be computed. <b>Do not put end-to-end causal attribution into Phase I acceptance.</b> Cover only 2–3 representative flows of “decision-layer replay + mocked tools”. <b>Fix the metric definitions first.</b> All four score below 2 on 5.2 with no off-the-shelf implementation; if the definitions are unsettled, the diffs produced by Algorithm 2 cannot become acceptance metrics. Also, OPA scores only 3 on 2.3 (no fallback code for runtime exceptions), so Algorithm 2 should include fail-closed verification in its test scope.` };
 
   /* ---------------- plan ---------------- */
   S['plan.h2'] = { zh: `Phase 1：按月推进，两月一次Gate`, en: `Phase 1: monthly progress, a Gate every two months` };
-  S['plan.p']  = { zh: `点击任意月份查看该月的SCUT研究重点、汇丰配合事项与当月的可验收交付。每两个月形成一个明确Gate，避免研究与工程长期脱节。`,
-                   en: `Click any month to see that month's SCUT research focus, HSBC's supporting work and the acceptance deliverable. A clear Gate is formed every two months so that research and engineering never drift apart.` };
+  S['plan.p']  = { zh: `点击任意月份查看该月的SCUT研究重点、合作方配合事项与当月的可验收交付。每两个月形成一个明确Gate，避免研究与工程长期脱节。`,
+                   en: `Click any month to see that month's SCUT research focus, the bank's supporting work and the acceptance deliverable. A clear Gate is formed every two months so that research and engineering never drift apart.` };
   S['plan.st1.b'] = { zh: `M1–2`, en: `M1–2` };
   S['plan.st1.s'] = { zh: `看清问题`, en: `See the problem clearly` };
   S['plan.st2.b'] = { zh: `M3–4`, en: `M3–4` };
@@ -372,13 +372,13 @@ window.I18N = (function () {
   S['plan.st6.b'] = { zh: `M11–12`, en: `M11–12` };
   S['plan.st6.s'] = { zh: `验证与移交`, en: `Validate and hand over` };
   S['plan.scutTag'] = { zh: `SCUT 重点：`, en: `SCUT focus: ` };
-  S['plan.hsbcTag'] = { zh: `汇丰配合：`, en: `HSBC support: ` };
+  S['plan.bankTag'] = { zh: `合作方配合：`, en: `Bank support: ` };
   S['plan.deliverHead'] = { zh: `可验收交付`, en: `Acceptance deliverable` };
 
   /* ---------------- roles ---------------- */
   S['roles.h2'] = { zh: `研究任务与产品建设不能混在一起`, en: `Research tasks and product building must not be mixed` };
-  S['roles.p']  = { zh: `SCUT回答“应该怎样设计、如何验证、怎样衡量”；汇丰回答“如何接入现有Agent Hub、如何安全上线和稳定运行”。`,
-                    en: `SCUT answers “how it should be designed, how to validate it, how to measure it”; HSBC answers “how to integrate it into the existing Agent Hub, how to launch safely and run it reliably”.` };
+  S['roles.p']  = { zh: `SCUT回答“应该怎样设计、如何验证、怎样衡量”；合作方回答“如何接入现有Agent Hub、如何安全上线和稳定运行”。`,
+                    en: `SCUT answers “how it should be designed, how to validate it, how to measure it”; the bank answers “how to integrate it into the existing Agent Hub, how to launch safely and run it reliably”.` };
   S['roles.scut.h3']  = { zh: `SCUT负责`, en: `SCUT is responsible for` };
   S['roles.scut.li1'] = { zh: `Policy生命周期、元数据、Context和证据模型`, en: `Policy lifecycle, metadata, Context and evidence models` };
   S['roles.scut.li2'] = { zh: `冲突、缺口、不可达与回归测试方法`, en: `Conflict, gap, unreachable and regression testing methods` };
@@ -387,14 +387,14 @@ window.I18N = (function () {
   S['roles.scut.li5'] = { zh: `Replay、Simulation和Evaluation方法`, en: `Replay, Simulation and Evaluation methods` };
   S['roles.scut.li6'] = { zh: `技术报告、论文与专利技术交底书`, en: `Technical reports, papers and patent disclosure documents` };
   S['roles.scut.p']   = { zh: `不承担：Agent Hub生产系统实现、集成与运维。`, en: `Not responsible for: Agent Hub production implementation, integration and operations.` };
-  S['roles.hsbc.h3']  = { zh: `汇丰负责`, en: `HSBC is responsible for` };
-  S['roles.hsbc.li1'] = { zh: `提供Agent Hub设计和代表性用例`, en: `Provide the Agent Hub design and representative use cases` };
-  S['roles.hsbc.li2'] = { zh: `提供脱敏或合成的Policy、Trace与Decision Log`, en: `Provide desensitised or synthetic Policy, Trace and Decision Log` };
-  S['roles.hsbc.li3'] = { zh: `实现Policy创建、审批、发布和附着功能`, en: `Implement Policy creation, approval, release and attachment` };
-  S['roles.hsbc.li4'] = { zh: `接入OPA或其他Policy Engine及业务系统`, en: `Integrate OPA or another Policy Engine and business systems` };
-  S['roles.hsbc.li5'] = { zh: `建设正式测试、Replay、Dashboard与审计功能`, en: `Build formal testing, Replay, Dashboard and audit capabilities` };
-  S['roles.hsbc.li6'] = { zh: `负责安全、性能、合规、上线和持续运营`, en: `Own security, performance, compliance, launch and ongoing operations` };
-  S['roles.hsbc.p']   = { zh: `双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。`, en: `Jointly: scope confirmation, stage acceptance, data governance, intellectual property and publication.` };
+  S['roles.bank.h3']  = { zh: `合作方负责`, en: `The bank is responsible for` };
+  S['roles.bank.li1'] = { zh: `提供Agent Hub设计和代表性用例`, en: `Provide the Agent Hub design and representative use cases` };
+  S['roles.bank.li2'] = { zh: `提供脱敏或合成的Policy、Trace与Decision Log`, en: `Provide desensitised or synthetic Policy, Trace and Decision Log` };
+  S['roles.bank.li3'] = { zh: `实现Policy创建、审批、发布和附着功能`, en: `Implement Policy creation, approval, release and attachment` };
+  S['roles.bank.li4'] = { zh: `接入OPA或其他Policy Engine及业务系统`, en: `Integrate OPA or another Policy Engine and business systems` };
+  S['roles.bank.li5'] = { zh: `建设正式测试、Replay、Dashboard与审计功能`, en: `Build formal testing, Replay, Dashboard and audit capabilities` };
+  S['roles.bank.li6'] = { zh: `负责安全、性能、合规、上线和持续运营`, en: `Own security, performance, compliance, launch and ongoing operations` };
+  S['roles.bank.p']   = { zh: `双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。`, en: `Jointly: scope confirmation, stage acceptance, data governance, intellectual property and publication.` };
 
   /* ---------------- deliverables ---------------- */
   S['del.h2'] = { zh: `不是一份报告，而是六个可验收的交付包`, en: `Not one report, but six acceptance-ready deliverable packages` };
@@ -428,10 +428,10 @@ window.I18N = (function () {
 
   /* ---------------- cta / footer ---------------- */
   S['cta.h2'] = { zh: `Phase 1的真正终点`, en: `The real endpoint of Phase 1` };
-  S['cta.p']  = { zh: `汇丰不只是“装上一个Policy Engine”，而是拥有能持续管理、验证、度量和审计Agent行为的治理能力；SCUT的方法与算法成果也能被工程团队直接接管。`,
-                  en: `HSBC does not merely “install a Policy Engine”; it gains governance capabilities that continuously manage, validate, measure and audit Agent behaviour, and SCUT's methods and algorithms can be taken over directly by the engineering team.` };
+  S['cta.p']  = { zh: `合作方不只是“装上一个Policy Engine”，而是拥有能持续管理、验证、度量和审计Agent行为的治理能力；SCUT的方法与算法成果也能被工程团队直接接管。`,
+                  en: `The bank does not merely “install a Policy Engine”; it gains governance capabilities that continuously manage, validate, measure and audit Agent behaviour, and SCUT's methods and algorithms can be taken over directly by the engineering team.` };
   S['cta.link'] = { zh: `从M1开始`, en: `Start at M1` };
-  S['footer.a'] = { zh: `HSBC × SCUT · Agent Policy Governance Research Proposal`, en: `HSBC × SCUT · Agent Policy Governance Research Proposal` };
+  S['footer.a'] = { zh: `AgentHub × SCUT · Agent Policy Governance Research Proposal`, en: `AgentHub × SCUT · Agent Policy Governance Research Proposal` };
   S['footer.b'] = { zh: `Interactive concept demo · No confidential data`, en: `Interactive concept demo · No confidential data` };
 
   /* ---------------- architecture detail (per view) ---------------- */
@@ -453,101 +453,101 @@ window.I18N = (function () {
     zh: [
       { m: `M1`, title: `启动与基线`, gate: ``, goal: `看清问题：现有 Agent Hub 与 Policy 执行能力到底长什么样`,
         scut: `建立方法框架：调研 Agent Hub 现状、Policy 执行链路、Trace 与 Decision Log 现状，列出能力差距清单。`,
-        hsbc: `提供 Agent Hub 设计文档、代表性用例与脱敏样本，确认合作范围。`,
+        bank: `提供 Agent Hub 设计文档、代表性用例与脱敏样本，确认合作范围。`,
         deliver: `调研提纲与差距清单初稿（D01 起步）。` },
       { m: `M2`, title: `需求基线与口径`, gate: `Gate 1`, goal: `把 Phase 1 需求固化成 5 板块 11 功能点，并定义指标口径`,
         scut: `完成需求基线与量化目标口径初稿，明确覆盖率、误拦截、漏拦截等指标定义。`,
-        hsbc: `确认 Scope、数据范围与验收门槛，与 SCUT 对齐指标定义。`,
+        bank: `确认 Scope、数据范围与验收门槛，与 SCUT 对齐指标定义。`,
         deliver: `需求基线与差距分析包（D01）。` },
       { m: `M3`, title: `引擎选型收敛`, gate: ``, goal: `把四个候选引擎的定位和分数说清楚`,
         scut: `完成 OPA / Cedar / AGT / Guardrails 的逐项评分与层级定位分析，搭建 OPA 参考环境。`,
-        hsbc: `提供真实 Policy 样例与使用场景，协助评估集成成本。`,
+        bank: `提供真实 Policy 样例与使用场景，协助评估集成成本。`,
         deliver: `Policy Engine 调研选型包初稿（D02）。` },
       { m: `M4`, title: `选型定稿与规范启动`, gate: `Gate 2`, goal: `选型结论落地，规范设计启动`,
         scut: `D02 定稿（OPA 为主、AGT + OPA 可选）；启动 Policy 规范设计（D03）；专利 P1 技术交底评审。`,
-        hsbc: `确认选型结论，启动 Policy 管理功能的工程评估。`,
+        bank: `确认选型结论，启动 Policy 管理功能的工程评估。`,
         deliver: `调研选型包（D02）定稿；规范包（D03）启动。` },
       { m: `M5`, title: `验证方法设计`, gate: ``, goal: `算法一设计成型，覆盖冲突、冗余、不可达、缺口`,
         scut: `完成算法一（语义约束规则图缺陷检测）的设计与最小实现；启动验证测试工具包（D05）与算法原型包（D07）。`,
-        hsbc: `提供控制矩阵或正负样例，用于定义“覆盖缺口”。`,
+        bank: `提供控制矩阵或正负样例，用于定义“覆盖缺口”。`,
         deliver: `算法一设计说明与参考原型（D07 起步）。` },
       { m: `M6`, title: `上线前能测试`, gate: `Gate 3`, goal: `冲突、缺口、回归三类检测方法可用`,
         scut: `完成冲突／缺口／不可达检测方法与回归测试方法；D05 验证测试工具包定稿；专利 P2 技术交底评审。`,
-        hsbc: `实现 Policy 创建、审批、发布与附着功能，接入 OPA。`,
+        bank: `实现 Policy 创建、审批、发布与附着功能，接入 OPA。`,
         deliver: `验证测试工具包（D05）；Policy 规范包（D03）定稿。` },
       { m: `M7`, title: `重放与基准设计`, gate: ``, goal: `算法二设计成型，Replay 与 Benchmark 方法定义清楚`,
         scut: `完成算法二（因果轨迹反事实重放）设计；定义 Replay / Simulation 方法；设计 Benchmark 场景与预期结果。`,
-        hsbc: `提供历史 Trace 与 Decision Log，建设 Replay 与测试环境。`,
+        bank: `提供历史 Trace 与 Decision Log，建设 Replay 与测试环境。`,
         deliver: `重放方法设计与基准场景集（D06 起步）。` },
       { m: `M8`, title: `基准与重放落地`, gate: `Gate 4`, goal: `能在不影响生产的前提下比较新旧 Policy`,
         scut: `D06 完成：标准场景、预期结果、Replay 方法、指标口径与基线结果；专利 P3 技术交底评审。`,
-        hsbc: `在受控环境试运行，接入正式测试与 Dashboard。`,
+        bank: `在受控环境试运行，接入正式测试与 Dashboard。`,
         deliver: `Replay / Simulation / Benchmark 包（D06）。` },
       { m: `M9`, title: `指标与证据`, gate: ``, goal: `用真实或脱敏数据算出第一版基线`,
         scut: `基于脱敏生产数据计算覆盖率、误拦截、漏拦截、延迟与人工复核负担；启动指标与治理证据包（D08）。`,
-        hsbc: `接入脱敏生产数据并维护基线，保障数据合规使用。`,
+        bank: `接入脱敏生产数据并维护基线，保障数据合规使用。`,
         deliver: `指标与治理证据包初稿（D08）。` },
       { m: `M10`, title: `量化与治理结论`, gate: `Gate 5`, goal: `把“好坏”变成可比较、可汇报的结论`,
         scut: `D08 定稿：指标口径、基线与改进结论；D04 参考实现收敛，D07 算法原型包收口。`,
-        hsbc: `完成 OPA 集成与安全、性能、合规评审。`,
+        bank: `完成 OPA 集成与安全、性能、合规评审。`,
         deliver: `指标与治理证据包（D08）；Phase I 算法原型包（D07）。` },
       { m: `M11`, title: `验收与技术转移`, gate: ``, goal: `成果可被工程团队直接接管`,
         scut: `撰写最终技术验收报告（D10）与技术转移培训包（D11），完善专利技术交底书（D09）。`,
-        hsbc: `组织验收，安排团队培训与上线运行交接。`,
+        bank: `组织验收，安排团队培训与上线运行交接。`,
         deliver: `最终报告与培训包（D10 / D11）。` },
       { m: `M12`, title: `收口与 Phase 2 评估`, gate: `Gate 6`, goal: `决定 Phase 2 是否具备进入条件`,
         scut: `完成验收答辩与材料移交，给出 Phase 2 准入评估结论。`,
-        hsbc: `确认运维与审计闭环，决定 Phase 2 立项。`,
+        bank: `确认运维与审计闭环，决定 Phase 2 立项。`,
         deliver: `Phase 2 准入评估；D01–D11 交付闭环。` }
     ],
     en: [
       { m: `M1`, title: `Start-up & baseline`, gate: ``, goal: `See the problem clearly: what do the existing Agent Hub and policy enforcement actually look like`,
         scut: `Establish the method framework: survey the current Agent Hub, the policy enforcement chain and the state of Trace and Decision Log, and produce a capability-gap list.`,
-        hsbc: `Provide Agent Hub design docs, representative use cases and desensitised samples; confirm the collaboration scope.`,
+        bank: `Provide Agent Hub design docs, representative use cases and desensitised samples; confirm the collaboration scope.`,
         deliver: `Draft research outline and gap list (D01 start).` },
       { m: `M2`, title: `Requirements baseline & metrics`, gate: `Gate 1`, goal: `Freeze Phase 1 requirements into 5 areas and 11 functional points, and define the metrics`,
         scut: `Complete the requirements baseline and a draft of quantified metric definitions, clarifying coverage, false blocks, missed blocks and so on.`,
-        hsbc: `Confirm scope, data range and acceptance thresholds; align metric definitions with SCUT.`,
+        bank: `Confirm scope, data range and acceptance thresholds; align metric definitions with SCUT.`,
         deliver: `Requirements baseline and gap analysis package (D01).` },
       { m: `M3`, title: `Engine selection convergence`, gate: ``, goal: `Make the positioning and scores of the four candidate engines clear`,
         scut: `Complete point-by-point scoring and layer positioning of OPA / Cedar / AGT / Guardrails, and set up an OPA reference environment.`,
-        hsbc: `Provide real Policy samples and usage scenarios; help assess integration cost.`,
+        bank: `Provide real Policy samples and usage scenarios; help assess integration cost.`,
         deliver: `Draft Policy Engine survey and selection package (D02).` },
       { m: `M4`, title: `Selection finalised & spec kick-off`, gate: `Gate 2`, goal: `The selection conclusion lands; specification design starts`,
         scut: `Finalise D02 (OPA primary, AGT + OPA optional); start the Policy specification design (D03); patent P1 disclosure review.`,
-        hsbc: `Confirm the selection conclusion and start engineering assessment of Policy management features.`,
+        bank: `Confirm the selection conclusion and start engineering assessment of Policy management features.`,
         deliver: `Survey & selection package (D02) finalised; specification package (D03) started.` },
       { m: `M5`, title: `Validation method design`, gate: ``, goal: `Algorithm 1 takes shape, covering conflicts, redundancy, unreachability and gaps`,
         scut: `Complete the design and minimal implementation of Algorithm 1 (semantic-constraint rule graph defect detection); start the validation test toolkit (D05) and algorithm prototype package (D07).`,
-        hsbc: `Provide the control matrix or positive/negative samples used to define “coverage gaps”.`,
+        bank: `Provide the control matrix or positive/negative samples used to define “coverage gaps”.`,
         deliver: `Algorithm 1 design document and reference prototype (D07 start).` },
       { m: `M6`, title: `Testable before release`, gate: `Gate 3`, goal: `Conflict, gap and regression detection methods become usable`,
         scut: `Complete conflict / gap / unreachable detection methods and regression testing methods; finalise the D05 validation test toolkit; patent P2 disclosure review.`,
-        hsbc: `Implement Policy creation, approval, release and attachment; integrate OPA.`,
+        bank: `Implement Policy creation, approval, release and attachment; integrate OPA.`,
         deliver: `Validation test toolkit (D05); Policy specification package (D03) finalised.` },
       { m: `M7`, title: `Replay & benchmark design`, gate: ``, goal: `Algorithm 2 takes shape; Replay and Benchmark methods are defined`,
         scut: `Complete the design of Algorithm 2 (causal-trace counterfactual replay); define Replay / Simulation methods; design Benchmark scenarios and expected results.`,
-        hsbc: `Provide historical Trace and Decision Log; build the Replay and test environment.`,
+        bank: `Provide historical Trace and Decision Log; build the Replay and test environment.`,
         deliver: `Replay method design and benchmark scenario set (D06 start).` },
       { m: `M8`, title: `Benchmark & replay in place`, gate: `Gate 4`, goal: `Compare old and new policies without affecting production`,
         scut: `Complete D06: standard scenarios, expected results, Replay methods, metric definitions and baseline results; patent P3 disclosure review.`,
-        hsbc: `Pilot in a controlled environment; integrate formal testing and a Dashboard.`,
+        bank: `Pilot in a controlled environment; integrate formal testing and a Dashboard.`,
         deliver: `Replay / Simulation / Benchmark package (D06).` },
       { m: `M9`, title: `Metrics & evidence`, gate: ``, goal: `Compute a first baseline with real or desensitised data`,
         scut: `Compute coverage, false blocks, missed blocks, latency and manual-review load on desensitised production data; start the metrics and governance evidence package (D08).`,
-        hsbc: `Connect desensitised production data and maintain the baseline; ensure compliant data use.`,
+        bank: `Connect desensitised production data and maintain the baseline; ensure compliant data use.`,
         deliver: `Draft metrics and governance evidence package (D08).` },
       { m: `M10`, title: `Quantification & governance conclusions`, gate: `Gate 5`, goal: `Turn “good or bad” into comparable, reportable conclusions`,
         scut: `Finalise D08: metric definitions, baseline and improvement conclusions; converge the D04 reference implementation and close out the D07 algorithm prototype package.`,
-        hsbc: `Complete OPA integration and security, performance and compliance reviews.`,
+        bank: `Complete OPA integration and security, performance and compliance reviews.`,
         deliver: `Metrics and governance evidence package (D08); Phase I algorithm prototype package (D07).` },
       { m: `M11`, title: `Acceptance & technology transfer`, gate: ``, goal: `Results can be taken over directly by the engineering team`,
         scut: `Write the final technical acceptance report (D10) and the technology transfer training package (D11); refine patent disclosure documents (D09).`,
-        hsbc: `Organise acceptance; arrange team training and go-live handover.`,
+        bank: `Organise acceptance; arrange team training and go-live handover.`,
         deliver: `Final report and training package (D10 / D11).` },
       { m: `M12`, title: `Close-out & Phase 2 assessment`, gate: `Gate 6`, goal: `Decide whether Phase 2 can begin`,
         scut: `Complete the acceptance defence and material handover; give the Phase 2 entry assessment conclusion.`,
-        hsbc: `Confirm the operations and audit loop is closed; decide on Phase 2 initiation.`,
+        bank: `Confirm the operations and audit loop is closed; decide on Phase 2 initiation.`,
         deliver: `Phase 2 entry assessment; D01–D11 delivery closed out.` }
     ]
   };

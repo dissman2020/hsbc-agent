@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="HSBC × SCUT Agent Hub Policy Governance Phase 1" data-i18n="page.desc" data-i18n-attr="content">
-  <title>HSBC × SCUT · Policy Governance Phase 1</title>
+  <meta name="description" content="AgentHub × SCUT Agent Hub Policy Governance Phase 1" data-i18n="page.desc" data-i18n-attr="content">
+  <title>AgentHub × SCUT · Policy Governance Phase 1</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar"><div class="wrap nav">
-    <div class="brand"><span class="mark"></span><b>HSBC × SCUT</b><span>Policy Governance</span></div>
+    <div class="brand"><span class="mark"></span><b>AgentHub × SCUT</b><span>Policy Governance</span></div>
     <nav><a href="#why" data-i18n="nav.why">为什么</a><a href="#architecture" data-i18n="nav.work">怎么工作</a><a href="#engines" data-i18n="nav.engines">引擎选型</a><a href="Agent通信消息队列选型汇报.html" data-i18n="nav.mq">通信选型</a><a href="#algorithms" data-i18n="nav.algorithms">两个算法</a><a href="#plan" data-i18n="nav.plan">Phase 1</a><a href="#roles" data-i18n="nav.roles">双方分工</a><a href="#deliverables" data-i18n="nav.deliver">交付什么</a></nav>
     <div class="nav-right">
       <span class="pill"><i></i><span data-i18n="nav.pill">Phase 1 · 12个月</span></span>
@@ -23,12 +23,12 @@
     <section class="hero"><div class="wrap">
       <div class="eyebrow">Agent Hub Policy Governance · Phase 1</div>
       <h1 data-i18n="hero.h1">不是再造一个引擎，<br>而是让每次 Agent 决策都<br><em>管得住、测得准、说得清</em></h1>
-      <p class="lead" data-i18n="hero.lead">汇丰已有 Agent Hub 和确定性 Policy 执行能力。Phase 1要补齐的是治理基础：Policy可管理、上线前可测试、运行中可度量、事后可审计。</p>
+      <p class="lead" data-i18n="hero.lead">合作方已有 Agent Hub 和确定性 Policy 执行能力。Phase 1要补齐的是治理基础：Policy可管理、上线前可测试、运行中可度量、事后可审计。</p>
       <div class="actions"><a class="primary" href="#architecture" data-i18n="hero.cta1">看懂整套方案</a><a class="secondary" href="#plan" data-i18n="hero.cta2">查看12个月计划</a></div>
-      <div class="one-line"><b data-i18n="hero.oneline.label">一句话分工</b><p data-i18n="hero.oneline.body"><strong>SCUT</strong>研究方法和算法、定义规范与评价口径；<strong>汇丰</strong>把这些成果接入现有Agent Hub，建设生产功能并负责上线运行。</p></div>
+      <div class="one-line"><b data-i18n="hero.oneline.label">一句话分工</b><p data-i18n="hero.oneline.body"><strong>SCUT</strong>研究方法和算法、定义规范与评价口径；<strong>合作方</strong>把这些成果接入现有Agent Hub，建设生产功能并负责上线运行。</p></div>
     </div></section>
     <section id="why"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Why now</div><h2 data-i18n="why.h2">汇丰现在缺的，不是“会不会拦截”</h2></div><p data-i18n="why.p">OPA、Cedar等工具擅长根据明确规则给出允许或拒绝。更困难的是：规则怎么管理、是否正确、升级会不会出问题、出了问题能否还原。</p></div>
+      <div class="section-head"><div><div class="eyebrow">Why now</div><h2 data-i18n="why.h2">合作方现在缺的，不是“会不会拦截”</h2></div><p data-i18n="why.p">OPA、Cedar等工具擅长根据明确规则给出允许或拒绝。更困难的是：规则怎么管理、是否正确、升级会不会出问题、出了问题能否还原。</p></div>
       <div class="problem-grid">
         <article class="problem"><span class="num">01</span><h3 data-i18n="why.p1.h">Policy越来越多，谁负责？</h3><p data-i18n="why.p1.p">版本、责任人、审批状态和生效范围不清楚，容易出现旧规则仍在运行。</p><b data-i18n="why.p1.b">→ 建立完整生命周期</b></article>
         <article class="problem"><span class="num">02</span><h3 data-i18n="why.p2.h">上线前，怎么知道不会误伤？</h3><p data-i18n="why.p2.p">缺少标准场景和预期结果，Policy修改后无法系统判断是改善还是倒退。</p><b data-i18n="why.p2.b">→ 建立测试、Replay与Benchmark</b></article>
@@ -306,12 +306,12 @@
       <div class="matrix-note">
         <div class="mn"><b data-i18n="mx.n1.b">1 · 分数最低的三格，就是两套算法的位置</b><p data-i18n="mx.n1.p"><b>3.2</b>：OPA 仅 2 分（只原生支持规则冲突检测），Cedar 4 分但明确写了<b>不支持缺口检测</b>——“覆盖缺口”是四家共同的空白。 <b>4.2</b>：四家一律 3 分，实现方式都是手工对比历史用例。 <b>5.2</b>：最高只有 2 分，除 latency 外的 FP/FN、覆盖率、冲突率全都要自建。算法一填 3.2，算法二同时填 4.2 与 5.2。</p></div>
         <div class="mn"><b data-i18n="mx.n2.b">2 · 落地前提，OPA 已经满足</b><p data-i18n="mx.n2.p">算法一需要可解析的规则源码：OPA 在 3.1 上原生支持 check/build 静态校验（满分），且 Rego 是声明式语言、可解析为 AST。算法二需要可重放的 Trace 与 Policy 版本快照：OPA 在 5.1 上原生支持决策日志且可自行补充中间信息，Bundle 机制天然带版本与签名。另外 2.2 OPA 满分，与决策契约的 allow / deny / allow_with_constraints / escalate 四种 effect 契合。</p></div>
-        <div class="mn warn"><b data-i18n="mx.n3.b">3 · 三个必须正视的边界</b><p data-i18n="mx.n3.p"><b>缺口检测缺“业务意图”，是最大前置依赖。</b>四家都不支持缺口检测，原因不是技术做不到，而是没有“应有控制但未被规则覆盖的域”就无法定义缺口——算法一必须先拿到汇丰的控制矩阵或正负样例，否则“注入缺陷检出率 ≥90%”无法计算。<b>端到端因果归因不要写进 Phase I 验收。</b>只覆盖“决策层重放 + 工具 Mock”的 2–3 个代表性流程。<b>指标口径要先固化。</b>5.2 四家都低于 2 分、没有任何现成实现，口径不定，算法二产出的差分就变不成可验收指标。另外 2.3 OPA 仅 3 分（没有运行异常下的兜底代码），算法二做 fail-closed 验证时要把它纳入测试范围。</p></div>
+        <div class="mn warn"><b data-i18n="mx.n3.b">3 · 三个必须正视的边界</b><p data-i18n="mx.n3.p"><b>缺口检测缺“业务意图”，是最大前置依赖。</b>四家都不支持缺口检测，原因不是技术做不到，而是没有“应有控制但未被规则覆盖的域”就无法定义缺口——算法一必须先拿到合作方的控制矩阵或正负样例，否则“注入缺陷检出率 ≥90%”无法计算。<b>端到端因果归因不要写进 Phase I 验收。</b>只覆盖“决策层重放 + 工具 Mock”的 2–3 个代表性流程。<b>指标口径要先固化。</b>5.2 四家都低于 2 分、没有任何现成实现，口径不定，算法二产出的差分就变不成可验收指标。另外 2.3 OPA 仅 3 分（没有运行异常下的兜底代码），算法二做 fail-closed 验证时要把它纳入测试范围。</p></div>
       </div>
     </div></section>
 
     <section id="plan"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">12-month plan</div><h2 data-i18n="plan.h2">Phase 1：按月推进，两月一次Gate</h2></div><p data-i18n="plan.p">点击任意月份查看该月的SCUT研究重点、汇丰配合事项与当月的可验收交付。每两个月形成一个明确Gate，避免研究与工程长期脱节。</p></div>
+      <div class="section-head"><div><div class="eyebrow">12-month plan</div><h2 data-i18n="plan.h2">Phase 1：按月推进，两月一次Gate</h2></div><p data-i18n="plan.p">点击任意月份查看该月的SCUT研究重点、合作方配合事项与当月的可验收交付。每两个月形成一个明确Gate，避免研究与工程长期脱节。</p></div>
       <div class="plan-stages">
         <div class="stage-chip"><b data-i18n="plan.st1.b">M1–2</b><span data-i18n="plan.st1.s">看清问题</span></div>
         <div class="stage-chip"><b data-i18n="plan.st2.b">M3–4</b><span data-i18n="plan.st2.s">统一语言</span></div>
@@ -325,10 +325,10 @@
     </div></section>
 
     <section id="roles"><div class="wrap">
-      <div class="section-head"><div><div class="eyebrow">Clear ownership</div><h2 data-i18n="roles.h2">研究任务与产品建设不能混在一起</h2></div><p data-i18n="roles.p">SCUT回答“应该怎样设计、如何验证、怎样衡量”；汇丰回答“如何接入现有Agent Hub、如何安全上线和稳定运行”。</p></div>
+      <div class="section-head"><div><div class="eyebrow">Clear ownership</div><h2 data-i18n="roles.h2">研究任务与产品建设不能混在一起</h2></div><p data-i18n="roles.p">SCUT回答“应该怎样设计、如何验证、怎样衡量”；合作方回答“如何接入现有Agent Hub、如何安全上线和稳定运行”。</p></div>
       <div class="roles">
         <article class="role scut"><small>SCUT OWNS RESEARCH &amp; METHODOLOGY</small><h3 data-i18n="roles.scut.h3">SCUT负责</h3><ul><li data-i18n="roles.scut.li1">Policy生命周期、元数据、Context和证据模型</li><li data-i18n="roles.scut.li2">冲突、缺口、不可达与回归测试方法</li><li data-i18n="roles.scut.li3">两个核心算法的设计、形式化与可行性验证</li><li data-i18n="roles.scut.li4">Benchmark场景、预期结果与指标口径</li><li data-i18n="roles.scut.li5">Replay、Simulation和Evaluation方法</li><li data-i18n="roles.scut.li6">技术报告、论文与专利技术交底书</li></ul><p data-i18n="roles.scut.p">不承担：Agent Hub生产系统实现、集成与运维。</p></article>
-        <article class="role hsbc"><small>HSBC OWNS PRODUCT &amp; PRODUCTION</small><h3 data-i18n="roles.hsbc.h3">汇丰负责</h3><ul><li data-i18n="roles.hsbc.li1">提供Agent Hub设计和代表性用例</li><li data-i18n="roles.hsbc.li2">提供脱敏或合成的Policy、Trace与Decision Log</li><li data-i18n="roles.hsbc.li3">实现Policy创建、审批、发布和附着功能</li><li data-i18n="roles.hsbc.li4">接入OPA或其他Policy Engine及业务系统</li><li data-i18n="roles.hsbc.li5">建设正式测试、Replay、Dashboard与审计功能</li><li data-i18n="roles.hsbc.li6">负责安全、性能、合规、上线和持续运营</li></ul><p data-i18n="roles.hsbc.p">双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。</p></article>
+        <article class="role bank"><small>THE BANK OWNS PRODUCT &amp; PRODUCTION</small><h3 data-i18n="roles.bank.h3">合作方负责</h3><ul><li data-i18n="roles.bank.li1">提供Agent Hub设计和代表性用例</li><li data-i18n="roles.bank.li2">提供脱敏或合成的Policy、Trace与Decision Log</li><li data-i18n="roles.bank.li3">实现Policy创建、审批、发布和附着功能</li><li data-i18n="roles.bank.li4">接入OPA或其他Policy Engine及业务系统</li><li data-i18n="roles.bank.li5">建设正式测试、Replay、Dashboard与审计功能</li><li data-i18n="roles.bank.li6">负责安全、性能、合规、上线和持续运营</li></ul><p data-i18n="roles.bank.p">双方共同：范围确认、阶段验收、数据治理、知识产权与成果发表。</p></article>
       </div>
     </div></section>
 
@@ -349,9 +349,9 @@
       <div class="glossary"><article><b>Policy</b><span data-i18n="gl.i1.s">规定Agent在什么条件下可以做什么、不能做什么，以及何时需要人工确认。</span></article><article><b>Policy Engine</b><span data-i18n="gl.i2.s">根据Policy和Context作出允许、拒绝、复核或降级判断。</span></article><article><b>Context</b><span data-i18n="gl.i3.s">用户角色、Agent、工具、数据等级和用途等现场信息。</span></article><article><b>Decision Log / Trace</b><span data-i18n="gl.i4.s">记录为何这样判断以及完整调用过程，用于审计和复现。</span></article><article><b>Replay / Simulation</b><span data-i18n="gl.i5.s">重放历史或模拟新场景，不影响真实业务地测试Policy。</span></article><article><b>Benchmark</b><span data-i18n="gl.i6.s">固定的标准场景和预期答案，用来客观比较Policy版本。</span></article><article><b>AST</b><span data-i18n="gl.i7.s">解析规则时使用的内部结构，不是另一种Policy语言。</span></article><article><b>SAT / SMT</b><span data-i18n="gl.i8.s">判断一组逻辑条件能否同时成立的计算方法。</span></article><article><b>Z3</b><span data-i18n="gl.i9.s">可以直接执行SAT/SMT计算、并返回解集的现成工具，用于求解是否冲突、是否覆盖。</span></article></div>
     </div></section>
 
-    <section><div class="wrap"><div class="cta"><div><h2 data-i18n="cta.h2">Phase 1的真正终点</h2><p data-i18n="cta.p">汇丰不只是“装上一个Policy Engine”，而是拥有能持续管理、验证、度量和审计Agent行为的治理能力；SCUT的方法与算法成果也能被工程团队直接接管。</p></div><a class="primary" href="#plan" data-i18n="cta.link">从M1开始</a></div></div></section>
+    <section><div class="wrap"><div class="cta"><div><h2 data-i18n="cta.h2">Phase 1的真正终点</h2><p data-i18n="cta.p">合作方不只是“装上一个Policy Engine”，而是拥有能持续管理、验证、度量和审计Agent行为的治理能力；SCUT的方法与算法成果也能被工程团队直接接管。</p></div><a class="primary" href="#plan" data-i18n="cta.link">从M1开始</a></div></div></section>
   </main>
-  <footer><div class="wrap"><span data-i18n="footer.a">HSBC × SCUT · Agent Policy Governance Research Proposal</span><span data-i18n="footer.b">Interactive concept demo · No confidential data</span></div></footer>
+  <footer><div class="wrap"><span data-i18n="footer.a">AgentHub × SCUT · Agent Policy Governance Research Proposal</span><span data-i18n="footer.b">Interactive concept demo · No confidential data</span></div></footer>
   <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>

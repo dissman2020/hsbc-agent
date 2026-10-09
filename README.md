@@ -1,1 +1,1 @@
-# hsbc-agent
+# AgentHub × SCUT · Agent Policy Governance

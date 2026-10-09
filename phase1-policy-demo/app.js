@@ -5,7 +5,7 @@
   var S = I18N.S;
   var MONTHS = I18N.MONTHS;
 
-  var STORAGE_KEY = 'hsbc-demo-lang';
+  var STORAGE_KEY = 'agenthub-demo-lang';
   var DEFAULT_LANG = 'zh';
   var SUPPORTED = ['zh', 'en'];
 
@@ -157,7 +157,7 @@
       '<h3>' + mo.title + '</h3>' +
       '<p>' + mo.goal + '</p>' +
       '<ul><li><b>' + t('plan.scutTag') + '</b>' + mo.scut + '</li>' +
-      '<li><b>' + t('plan.hsbcTag') + '</b>' + mo.hsbc + '</li></ul></div>' +
+      '<li><b>' + t('plan.bankTag') + '</b>' + mo.bank + '</li></ul></div>' +
       '<div><h3>' + t('plan.deliverHead') + '</h3><p>' + mo.deliver + '</p></div>';
   }
 
