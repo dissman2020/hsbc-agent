@@ -10,6 +10,7 @@ window.I18N = (function () {
   S['nav.why']        = { zh: `为什么`, en: `Why` };
   S['nav.work']       = { zh: `怎么工作`, en: `How it works` };
   S['nav.engines']    = { zh: `引擎选型`, en: `Engine selection` };
+  S['nav.mq']         = { zh: `通信选型`, en: `Messaging selection` };
   S['nav.algorithms'] = { zh: `两个算法`, en: `Two algorithms` };
   S['nav.plan']       = { zh: `Phase 1`, en: `Phase 1` };
   S['nav.roles']      = { zh: `双方分工`, en: `Division of labor` };
